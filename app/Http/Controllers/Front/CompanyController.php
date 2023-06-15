@@ -11,7 +11,7 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $companies = Company::all();
+        $companies = Company::paginate(9);
         // $jobs = Job::with('company')->get();
         $jobs = Job::countCompanyJobs();
         return view('view.companies', [
