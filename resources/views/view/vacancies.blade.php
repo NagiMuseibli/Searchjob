@@ -8,12 +8,12 @@
     <section class="page-title style-two">
         <div class="auto-container">
             <!-- <div class="title-outer">
-                                                                                                                                                                                  <h1>Find Jobs</h1>
-                                                                                                                                                                                  <ul class="page-breadcrumb">
-                                                                                                                                                                                      <li><a href="index.html">Home</a></li>
-                                                                                                                                                                                      <li>Jobs</li>
-                                                                                                                                                                                  </ul>
-                                                                                                                                                                              </div> -->
+                                                                                                                                                                                      <h1>Find Jobs</h1>
+                                                                                                                                                                                      <ul class="page-breadcrumb">
+                                                                                                                                                                                          <li><a href="index.html">Home</a></li>
+                                                                                                                                                                                          <li>Jobs</li>
+                                                                                                                                                                                      </ul>
+                                                                                                                                                                                  </div> -->
 
             <!-- Job Search Form -->
             <div class="job-search-form">
@@ -223,7 +223,7 @@
                         <!-- ls Switcher -->
                         <div class="ls-switcher">
                             <div class="showing-result">
-                                <div class="text">Ümumi <strong>944</strong> vakansiya</div>
+                                <div class="text">Ümumi <strong>{{ count($jobs) }}</strong> vakansiya</div>
                             </div>
                             {{-- <div class="sort-by">
                                 <select class="chosen-select">

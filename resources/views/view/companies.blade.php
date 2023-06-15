@@ -64,7 +64,7 @@
                         <!-- ls Switcher -->
                         <div class="ls-switcher">
                             <div class="showing-result">
-                                <div class="text">Ümumi <strong>944</strong> şirkət</div>
+                                <div class="text">Ümumi <strong>{{ count($companies) }}</strong> şirkət</div>
                             </div>
 
                         </div>
@@ -94,7 +94,7 @@
                                             </li>
                                             <li><span class="icon flaticon-briefcase"></span> Accounting / Finance</li>
                                         </ul>
-                                        <div class="job-type">Açıq iş yerləri – {{ $jobs->count }}</div>
+                                        <div class="job-type">{{ $jobs->count }} vakansiya</div>
                                     </div>
                                 </div>
                             @endforeach
