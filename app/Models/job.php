@@ -51,7 +51,7 @@ class job extends Model
         FROM jobs
         JOIN companies ON jobs.company_id = companies.id
         WHERE jobs.category_id = :category_id
-        WHERE jobs.status = 1
+        AND jobs.status = 1
         LIMIT 4
         ", ['category_id' => $category_id]);
 
