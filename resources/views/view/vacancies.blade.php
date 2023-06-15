@@ -8,12 +8,12 @@
     <section class="page-title style-two">
         <div class="auto-container">
             <!-- <div class="title-outer">
-                                                                                                                                                                                                  <h1>Find Jobs</h1>
-                                                                                                                                                                                                  <ul class="page-breadcrumb">
-                                                                                                                                                                                                      <li><a href="index.html">Home</a></li>
-                                                                                                                                                                                                      <li>Jobs</li>
-                                                                                                                                                                                                  </ul>
-                                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                              <h1>Find Jobs</h1>
+                                                                                                                                                                                                              <ul class="page-breadcrumb">
+                                                                                                                                                                                                                  <li><a href="index.html">Home</a></li>
+                                                                                                                                                                                                                  <li>Jobs</li>
+                                                                                                                                                                                                              </ul>
+                                                                                                                                                                                                          </div> -->
 
             <!-- Job Search Form -->
             <div class="job-search-form">
@@ -288,14 +288,9 @@
 
 
                         <!-- Pagination -->
-                        <nav class="ls-pagination">
-                            <ul>
-                                <li class="prev"><a href="#"><i class="fa fa-arrow-left"></i></a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#" class="current-page">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li class="next"><a href="#"><i class="fa fa-arrow-right"></i></a></li>
-                            </ul>
+
+                        <nav class="pagination">
+                            {{ $jobs->links() }}
                         </nav>
                     </div>
                 </div>

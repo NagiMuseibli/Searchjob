@@ -37,19 +37,14 @@
                             <div class="filter-block">
                                 <h4>Açar sözü ilə axtar</h4>
                                 <div class="form-group">
-                                    <input type="text" name="listing-search"
-                                        placeholder="İş adı, açar sözlər, və ya şirkət">
+                                    <input type="text" name="listing-search" placeholder="Şirkət adı">
                                     <span class="icon flaticon-search-3"></span>
                                 </div>
                             </div>
 
                             <!-- Filter Block -->
-                            <div class="filter-block">
-                                <h4>Məkan</h4>
-                                <div class="form-group">
-                                    <input type="text" name="listing-search" placeholder="Şəhər">
-                                    <span class="icon flaticon-map-locator"></span>
-                                </div>
+                            <div class="form-group col-lg-2 col-md-12 col-sm-12 text-right">
+                                <button type="submit" class="theme-btn btn-style-one">Axtar</button>
                             </div>
 
                         </div>

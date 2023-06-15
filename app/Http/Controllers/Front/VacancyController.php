@@ -11,7 +11,7 @@ class VacancyController extends Controller
 {
     public function index()
     {
-        $jobs = Job::with('category', 'company')->orderByDesc('created_at')->get();
+        $jobs = Job::with('category', 'company')->orderByDesc('created_at')->paginate(5);
 
         //dd($jobs);
         $categories = Category::all();
