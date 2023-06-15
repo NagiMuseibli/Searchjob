@@ -65,52 +65,45 @@
                         </div>
 
                         <!-- Other Options -->
-                        <div class="other-options">
+                        {{-- <div class="other-options">
                             <div class="social-share">
                                 <h5>Share this job</h5>
                                 <a href="#" class="facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
                                 <a href="#" class="twitter"><i class="fab fa-twitter"></i> Twitter</a>
                                 <a href="#" class="google"><i class="fab fa-google"></i> Google+</a>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <!-- Related Jobs -->
                         <div class="related-jobs">
                             <div class="title-box">
-                                <h3>Related Jobs</h3>
-                                <div class="text">2020 jobs live - 293 added today.</div>
+                                <h3>Oxşar vakansiyalar</h3>
+                                {{-- <div class="text">2020 jobs live - 293 added today.</div> --}}
                             </div>
 
                             <div class="row">
                                 <!-- Job Block -->
-                                <div class="job-block-four col-lg-6 col-md-6 col-sm-12">
-                                    <div class="inner-box">
-                                        <ul class="job-other-info">
-                                            <li class="time">Full Time</li>
-                                        </ul>
-                                        <span class="company-logo"><img src="images/resource/company-logo/3-1.png"
-                                                alt=""></span>
-                                        <span class="company-name">Catalyst</span>
-                                        <h4><a href="#">Software Engineer (Android), Libraries</a></h4>
-                                        <div class="location"><span class="icon flaticon-map-locator"></span> London, UK
+                                @foreach ($related_jobs as $related_job)
+                                    <div class="job-block-four col-lg-6 col-md-6 col-sm-12">
+                                        <div class="inner-box">
+                                            <ul class="job-other-info">
+                                                <li class="time">{{ $related_job->job_hour }}</li>
+                                            </ul>
+                                            <span class="company-logo"><img
+                                                    src="{{ 'images/companies/' . $related_job->company_image }}"
+                                                    alt=""></span>
+                                            <span class="company-name">{{ $related_job->company_name }}</span>
+                                            <h4><a
+                                                    href="{{ route('vacancy_show', ['id' => $related_job->job_id]) }}">{{ $related_job->job_title }}</a>
+                                            </h4>
+                                            <div class="location"><span class="icon flaticon-map-locator"></span>
+                                                {{ $related_job->job_location }}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endforeach
 
-                                <!-- Job Block -->
-                                <div class="job-block-four col-lg-6 col-md-6 col-sm-12">
-                                    <div class="inner-box">
-                                        <ul class="job-other-info">
-                                            <li class="time">Full Time</li>
-                                        </ul>
-                                        <span class="company-logo"><img src="images/resource/company-logo/3-2.png"
-                                                alt=""></span>
-                                        <span class="company-name">Catalyst</span>
-                                        <h4><a href="#">Software Engineer (Android), Libraries</a></h4>
-                                        <div class="location"><span class="icon flaticon-map-locator"></span> London, UK
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -124,13 +117,19 @@
 
                             <div class="sidebar-widget">
                                 <!-- Job Overview -->
-                                <h4 class="widget-title">Job Overview</h4>
+                                <h4 class="widget-title">Vakansiya haqqında</h4>
                                 <div class="widget-content">
                                     <ul class="job-overview">
                                         <li>
                                             <i class="icon icon-calendar"></i>
                                             <h5>Yerləşdirilmə tarixi:</h5>
-                                            <span>Posted 1 hours ago</span>
+                                            <span>
+                                                @php
+                                                    $first_date1 = explode(' ', $jobs->created_at);
+                                                    $first_date = $first_date1[0];
+                                                @endphp
+                                                {{ $first_date }}
+                                            </span>
                                         </li>
                                         <li>
                                             <i class="icon icon-expiry"></i>

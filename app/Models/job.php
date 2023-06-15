@@ -40,4 +40,20 @@ class job extends Model
         // $results = DB::select($query);
         return $result;
     }
+
+
+    public static function relatedJobs($category_id)
+    {
+        $result = DB::select("
+        SELECT jobs.title AS job_title, jobs.location AS job_location, 
+        jobs.work_hour AS job_hour, jobs.id AS job_id, companies.company_name AS company_name, 
+        companies.image AS company_image, companies.id AS company_id
+        FROM jobs
+        JOIN companies ON jobs.company_id = companies.id
+        WHERE jobs.category_id = :category_id
+        LIMIT 4
+        ", ['category_id' => $category_id]);
+
+        return $result;
+    }
 }

@@ -71,11 +71,15 @@ class HomeController extends Controller
     public function show_vacancy($id)
     {
         $jobs = Job::with('category')->find($id);
+        $category_id = $jobs->category->id;
+
+        $related_jobs = Job::relatedJobs($category_id);
         $company = Job::with('company')->find($id);
         // $users = User::where('is_employer', 0)->all();
         return view('view.job-single', [
             'jobs' => $jobs,
             'company' => $company,
+            'related_jobs' => $related_jobs,
         ]);
     }
 }
