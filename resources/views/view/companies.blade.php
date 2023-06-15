@@ -92,7 +92,6 @@
                                                 <span class="icon flaticon-map-locator"></span> {{ $company->location }}
                                                 <?php } ?>
                                             </li>
-                                            <li><span class="icon flaticon-briefcase"></span> Accounting / Finance</li>
                                         </ul>
                                         <div class="job-type">{{ $jobs->count }} vakansiya</div>
                                     </div>

@@ -14,7 +14,8 @@
                             <div class="job-block-seven">
                                 <div class="inner-box">
                                     <div class="content">
-                                        <span class="company-logo"><img src="images/resource/company-logo/5-1.png"
+                                        <span class="company-logo"><img
+                                                src="{{ 'images/companies/' . $company->company->image }}"
                                                 alt=""></span>
                                         <h4><a href="#">{{ $jobs->title }}</a></h4>
                                         <ul class="job-info">
@@ -41,17 +42,17 @@
                         </div>
                         <div class="sidebar-widget">
                             <div class="job-detail">
-                                <h4>Job Description</h4>
+                                <h4>Vakansiyanın təsviri</h4>
                                 <p>
                                     {{ $jobs->description }}
                                 </p>
-                                <h4>Key Responsibilities</h4>
+                                <h4>Xüsusi tələblər</h4>
                                 <ul class="list-style-three">
                                     <li>
                                         {{ $jobs->requirements }}
                                     </li>
                                 </ul>
-                                <h4>Skill & Experience</h4>
+                                <h4>Bacarıq və təcrübə</h4>
                                 <ul class="list-style-three">
                                     <li>You have at least 3 years’ experience working as a Product Designer.</li>
                                     <li>You have experience using Sketch and InVision or Framer X</li>
@@ -128,34 +129,34 @@
                                     <ul class="job-overview">
                                         <li>
                                             <i class="icon icon-calendar"></i>
-                                            <h5>Date Posted:</h5>
+                                            <h5>Yerləşdirilmə tarixi:</h5>
                                             <span>Posted 1 hours ago</span>
                                         </li>
                                         <li>
                                             <i class="icon icon-expiry"></i>
-                                            <h5>Expiration date:</h5>
+                                            <h5>Bitmə tarixi:</h5>
                                             <span>{{ $jobs->deadline }}</span>
                                         </li>
                                         <li>
                                             <i class="icon icon-location"></i>
-                                            <h5>Location:</h5>
+                                            <h5>Məkan:</h5>
                                             <span>{{ $jobs->location }}</span>
                                         </li>
                                         <li>
                                             <i class="icon icon-user-2"></i>
-                                            <h5>Job Title:</h5>
+                                            <h5>Başlıq:</h5>
                                             <span>{{ $jobs->title }}</span>
                                         </li>
                                         <li>
                                             <i class="icon icon-salary"></i>
-                                            <h5>Salary:</h5>
+                                            <h5>Əmək haqqı:</h5>
                                             <span>{{ $jobs->salary }}</span>
                                         </li>
                                     </ul>
                                 </div>
 
                                 <!-- Job Skills -->
-                                <h4 class="widget-title">Job Skills</h4>
+                                <h4 class="widget-title">Xüsusi tələblər</h4>
                                 <div class="widget-content">
                                     <ul class="job-skills">
                                         <li><a href="#">app</a></li>
@@ -171,11 +172,12 @@
                             <div class="sidebar-widget company-widget">
                                 <div class="widget-content">
                                     <div class="company-title">
-                                        <div class="company-logo"><img src="images/resource/company-7.png" alt="">
+                                        <div class="company-logo"><img
+                                                src="{{ 'images/companies/' . $company->company->image }}" alt="">
                                         </div>
                                         <h5 class="company-name">{{ $company->company->company_name }}</h5>
-                                        <a href="{{ route('single_company', ['id' => $company->id]) }}"
-                                            class="profile-link">View company profile</a>
+                                        <a href="{{ route('single_company', ['id' => $company->company->id]) }}"
+                                            class="profile-link">Şirkətin profilinə bax</a>
                                     </div>
                                 </div>
                             </div>

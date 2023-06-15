@@ -8,12 +8,12 @@
     <section class="page-title style-two">
         <div class="auto-container">
             <!-- <div class="title-outer">
-                                                                                                                                                                                      <h1>Find Jobs</h1>
-                                                                                                                                                                                      <ul class="page-breadcrumb">
-                                                                                                                                                                                          <li><a href="index.html">Home</a></li>
-                                                                                                                                                                                          <li>Jobs</li>
-                                                                                                                                                                                      </ul>
-                                                                                                                                                                                  </div> -->
+                                                                                                                                                                                          <h1>Find Jobs</h1>
+                                                                                                                                                                                          <ul class="page-breadcrumb">
+                                                                                                                                                                                              <li><a href="index.html">Home</a></li>
+                                                                                                                                                                                              <li>Jobs</li>
+                                                                                                                                                                                          </ul>
+                                                                                                                                                                                      </div> -->
 
             <!-- Job Search Form -->
             <div class="job-search-form">
@@ -252,7 +252,8 @@
                             <div class="job-block">
                                 <div class="inner-box">
                                     <div class="content">
-                                        <span class="company-logo"><img src="images/resource/company-logo/1-1.png"
+                                        <span class="company-logo"><img
+                                                src="{{ 'images/companies/' . $job->company->image }}"
                                                 alt=""></span>
                                         <h4><a
                                                 href="{{ route('vacancy_show', ['id' => $job->id]) }}">{{ $job->title }}</a>

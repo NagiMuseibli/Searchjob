@@ -32,8 +32,8 @@
                                 <div class="job-block">
                                     <div class="inner-box">
                                         <div class="content">
-                                            <span class="company-logo"><img src="images/resource/company-logo/1-3.png"
-                                                    alt=""></span>
+                                            <span class="company-logo"><img
+                                                    src="{{ 'images/companies/' . $company->image }}" alt=""></span>
                                             <h4><a
                                                     href="{{ route('vacancy_show', ['id' => $job->id]) }}">{{ $job->title }}</a>
                                             </h4>
@@ -66,7 +66,8 @@
                             <div class="sidebar-widget company-widget">
                                 <div class="widget-content">
                                     <div class="company-title">
-                                        <div class="company-logo"><img src="images/resource/company-7.png" alt="">
+                                        <div class="company-logo"><img src="{{ 'images/companies/' . $company->image }}"
+                                                alt="">
                                         </div>
                                         <h5 class="company-name">{{ $company->company_name }}</h5>
                                         <a href="#" class="company-link">Açıq iş yerləri – {{ count($jobs) }}</a>
