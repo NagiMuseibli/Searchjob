@@ -114,7 +114,7 @@
                             <div class="content">
                                 <span class="icon flaticon-web-programming"></span>
                                 <h4><a href="#">{{ $category->name }}</a></h4>
-                                <p>({{ $count_job }} aktiv vakansiya)</p>
+                                {{-- <p>({{ $count_job }} aktiv vakansiya)</p> --}}
                             </div>
                         </div>
                     </div>

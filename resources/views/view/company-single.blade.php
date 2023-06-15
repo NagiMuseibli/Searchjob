@@ -40,7 +40,14 @@
                                             <ul class="job-info">
                                                 <li><span class="icon flaticon-briefcase"></span> Segment</li>
                                                 <li><span class="icon flaticon-map-locator"></span>{{ $job->location }}</li>
-                                                <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
+                                                <li><span class="icon flaticon-clock-3"></span>
+                                                    @php
+                                                        $date = $job->created_at;
+                                                        $date = explode(' ', $date);
+                                                        $date = explode('-', $date[0]);
+                                                    @endphp
+                                                    {{ $date[1] . '.' . $date[2] . '.' . $date[0] }}
+                                                </li>
                                                 <li><span class="icon flaticon-money"></span> {{ $job->salary }}</li>
                                             </ul>
                                             <ul class="job-other-info">

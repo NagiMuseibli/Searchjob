@@ -64,15 +64,12 @@ class HomeController extends Controller
         $jobs = Job::with('category', 'company')->where('status', 1)->orderByDesc('created_at')->limit(18)->get();
 
         $categories = Category::all();
-        $count_job = Job::countCategoryJobs();
-        $count_job = $count_job[1]->job_count;
         $companies = Company::All();
         //dd(count($jobs));
         return view('view.home', [
             'jobs' => $jobs,
             'categories' => $categories,
             'companies' => $companies,
-            'count_job' => $count_job,
         ]);
     }
 
@@ -83,7 +80,10 @@ class HomeController extends Controller
 
         $related_jobs = Job::relatedJobs($category_id);
         $company = Job::with('company')->find($id);
-        // $users = User::where('is_employer', 0)->all();
+        $job = Job::findOrFail($id);
+
+        // Increment the views count
+        $job->increment('count');
         return view('view.job-single', [
             'jobs' => $jobs,
             'company' => $company,

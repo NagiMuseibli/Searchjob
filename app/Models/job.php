@@ -23,19 +23,12 @@ class job extends Model
 
     public static function countCompanyJobs()
     {
-        /* $query = "
+        $result = DB::selectOne("
             SELECT COUNT(*) AS count
             FROM jobs
             LEFT JOIN companies ON companies.id = jobs.company_id
             WHERE jobs.company_id = companies.id
-        
-        "; */
-        $result = DB::selectOne("
-    SELECT COUNT(*) AS count
-    FROM jobs
-    LEFT JOIN companies ON companies.id = jobs.company_id
-    WHERE jobs.company_id = companies.id
-");
+        ");
 
         // $results = DB::select($query);
         return $result;
@@ -46,7 +39,7 @@ class job extends Model
     {
         $result = DB::select("
         SELECT jobs.title AS job_title, jobs.location AS job_location, 
-        jobs.work_hour AS job_hour, jobs.id AS job_id, companies.company_name AS company_name, 
+        jobs.work_hour AS job_hour, jobs.id AS job_id, jobs.created_at, companies.company_name AS company_name, 
         companies.image AS company_image, companies.id AS company_id
         FROM jobs
         JOIN companies ON jobs.company_id = companies.id
@@ -54,18 +47,6 @@ class job extends Model
         AND jobs.status = 1
         LIMIT 4
         ", ['category_id' => $category_id]);
-
-        return $result;
-    }
-
-    public static function countCategoryJobs()
-    {
-        $result = DB::select("
-            SELECT COUNT(jobs.id) AS job_count
-            FROM categories
-            LEFT JOIN jobs ON categories.id = jobs.category_id
-            GROUP BY categories.id
-        ");
 
         return $result;
     }

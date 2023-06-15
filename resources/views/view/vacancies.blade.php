@@ -8,12 +8,12 @@
     <section class="page-title style-two">
         <div class="auto-container">
             <!-- <div class="title-outer">
-                                                                                                                                                                                              <h1>Find Jobs</h1>
-                                                                                                                                                                                              <ul class="page-breadcrumb">
-                                                                                                                                                                                                  <li><a href="index.html">Home</a></li>
-                                                                                                                                                                                                  <li>Jobs</li>
-                                                                                                                                                                                              </ul>
-                                                                                                                                                                                          </div> -->
+                                                                                                                                                                                                  <h1>Find Jobs</h1>
+                                                                                                                                                                                                  <ul class="page-breadcrumb">
+                                                                                                                                                                                                      <li><a href="index.html">Home</a></li>
+                                                                                                                                                                                                      <li>Jobs</li>
+                                                                                                                                                                                                  </ul>
+                                                                                                                                                                                              </div> -->
 
             <!-- Job Search Form -->
             <div class="job-search-form">
@@ -277,7 +277,7 @@
                                         <ul class="job-other-info">
                                             <li class="privacy">{{ $job->work_hour }}</li>
                                             <li class="time">{{ $job->company->company_name }}</li>
-                                            <li class="required"><i class="fa fa-eye"> 15</i></li>
+                                            <li class="required"><i class="fa fa-eye"> {{ $job->count }}</i></li>
                                         </ul>
 
                                         <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
