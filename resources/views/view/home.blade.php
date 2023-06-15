@@ -114,7 +114,7 @@
                             <div class="content">
                                 <span class="icon flaticon-web-programming"></span>
                                 <h4><a href="#">{{ $category->name }}</a></h4>
-                                <p>(12 open positions)</p>
+                                <p>({{ $count_job }} aktiv vakansiya)</p>
                             </div>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
                     <div class="job-block col-lg-6 col-md-12 col-sm-12">
                         <div class="inner-box">
                             <div class="content">
-                                <span class="company-logo"><img src="images/resource/company-logo/1-1.png"
+                                <span class="company-logo"><img src="{{ 'images/companies/' . $job->company->image }}"
                                         alt=""></span>
                                 <h4><a href="{{ route('vacancy_show', ['id' => $job->id]) }}">{{ $job->title }}</a>
                                 </h4>
@@ -171,7 +171,8 @@
             </div>
 
             <div class="btn-box">
-                <a href="#" class="theme-btn btn-style-one bg-blue"><span class="btn-title">Daha çox</span></a>
+                <a href="{{ route('vacancies') }}" class="theme-btn btn-style-one bg-blue"><span class="btn-title">Daha
+                        çox</span></a>
             </div>
         </div>
     </section>
@@ -186,34 +187,16 @@
         <div class="sponsors-outer wow fadeInUp">
             <!--Sponsors Carousel-->
             <ul class="sponsors-carousel owl-carousel owl-theme">
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="images/clients/1-1.png" alt=""></a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="images/clients/1-2.png" alt=""></a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="images/clients/1-3.png" alt=""></a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="images/clients/1-4.png" alt=""></a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="images/clients/1-5.png" alt=""></a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="images/clients/1-6.png" alt=""></a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box"><a href="#"><img src="images/clients/1-7.png" alt=""></a>
-                    </figure>
-                </li>
+                @foreach ($companies as $company)
+                    <li class="slide-item">
+                        <figure class="image-box"><a href="{{ route('single_company', ['id' => $company->id]) }}"><img
+                                    src="{{ 'images/companies/' . $company->image }}" alt=""></a>
+                        </figure>
+                    </li>
+                @endforeach
+
+
+
             </ul>
         </div>
     </section>

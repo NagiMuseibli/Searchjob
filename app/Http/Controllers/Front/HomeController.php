@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Company;
 use App\Models\Job;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -59,12 +60,19 @@ class HomeController extends Controller
             "location" => "Bakı",
             "deadline" => "30.04.2023",
         ]); */
-        $jobs = Job::with('category')->get();
+        // $jobs = Job::with('category')->orderByDesc('created_at')->get();
+        $jobs = Job::with('category', 'company')->where('status', 1)->orderByDesc('created_at')->limit(18)->get();
+
         $categories = Category::all();
+        $count_job = Job::countCategoryJobs();
+        $count_job = $count_job[1]->job_count;
+        $companies = Company::All();
         //dd(count($jobs));
         return view('view.home', [
             'jobs' => $jobs,
             'categories' => $categories,
+            'companies' => $companies,
+            'count_job' => $count_job,
         ]);
     }
 
