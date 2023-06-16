@@ -12,11 +12,13 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::paginate(9);
+        $company_count = count(Company::all());
         // $jobs = Job::with('company')->get();
         $jobs = Job::countCompanyJobs();
         return view('view.companies', [
             'companies' => $companies,
             'jobs' => $jobs,
+            'company_count' => $company_count,
         ]);
     }
 
@@ -28,6 +30,7 @@ class CompanyController extends Controller
         return view('view.company-single', [
             'company' => $company,
             'jobs' => $jobs,
+
         ]);
     }
 }

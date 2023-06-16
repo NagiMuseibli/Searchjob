@@ -59,7 +59,7 @@
                         <!-- ls Switcher -->
                         <div class="ls-switcher">
                             <div class="showing-result">
-                                <div class="text">Ümumi <strong>{{ count($companies) }}</strong> şirkət</div>
+                                <div class="text">Ümumi <strong>{{ $company_count }}</strong> şirkət</div>
                             </div>
 
                         </div>

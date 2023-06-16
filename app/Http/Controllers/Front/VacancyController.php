@@ -12,12 +12,14 @@ class VacancyController extends Controller
     public function index()
     {
         $jobs = Job::with('category', 'company')->orderByDesc('created_at')->paginate(5);
+        $job_count = count(Job::all());
 
         //dd($jobs);
         $categories = Category::all();
         return view('view.vacancies', [
             'jobs' => $jobs,
             'categories' => $categories,
+            'job_count' => $job_count,
         ]);
     }
 }
