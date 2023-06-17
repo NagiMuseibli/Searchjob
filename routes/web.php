@@ -44,6 +44,7 @@ Route::group(['middleware' => 'IsLogin'], function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/vacancies', [VacancyController::class, 'index'])->name('vacancies');
+Route::post('/vacancies', [VacancyController::class, 'search'])->name('search_vacancy');
 Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
 Route::get('/company{id}', [CompanyController::class, 'show'])->name('single_company');
 Route::get('/resume{id}', [ResumeController::class, 'show'])->name('single_resume');

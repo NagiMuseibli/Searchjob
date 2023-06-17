@@ -8,36 +8,37 @@
     <section class="page-title style-two">
         <div class="auto-container">
             <!-- <div class="title-outer">
-                                                                                                                                                                                                                  <h1>Find Jobs</h1>
-                                                                                                                                                                                                                  <ul class="page-breadcrumb">
-                                                                                                                                                                                                                      <li><a href="index.html">Home</a></li>
-                                                                                                                                                                                                                      <li>Jobs</li>
-                                                                                                                                                                                                                  </ul>
-                                                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                                                                                                                                                  <h1>Find Jobs</h1>
+                                                                                                                                                                                                                                                                                                                                  <ul class="page-breadcrumb">
+                                                                                                                                                                                                                                                                                                                                      <li><a href="index.html">Home</a></li>
+                                                                                                                                                                                                                                                                                                                                      <li>Jobs</li>
+                                                                                                                                                                                                                                                                                                                                  </ul>
+                                                                                                                                                                                                                                                                                                                              </div> -->
 
             <!-- Job Search Form -->
             <div class="job-search-form">
-                <form method="post" action="https://creativelayers.net/themes/superio/job-list-v10.html">
+                <form method="get" action="{{ route('vacancies') }}">
+                    @csrf
                     <div class="row">
                         <!-- Form Group -->
-                        <div class="form-group col-lg-4 col-md-12 col-sm-12">
+                        <div class="form-group col-lg-5 col-md-12 col-sm-12">
                             <span class="icon flaticon-search-1"></span>
-                            <input type="text" name="field_name" placeholder="İş adı, açar sözlər, və ya şirkət">
+                            <input type="text" name="searchTerm" placeholder="İş adı, açar sözlər, və ya şirkət">
                         </div>
 
                         <!-- Form Group -->
-                        <div class="form-group col-lg-3 col-md-12 col-sm-12 location">
+                        {{-- <div class="form-group col-lg-3 col-md-12 col-sm-12 location">
                             <span class="icon flaticon-map-locator"></span>
                             <input type="text" name="field_name" placeholder="Şəhər">
-                        </div>
+                        </div> --}}
 
                         <!-- Form Group -->
-                        <div class="form-group col-lg-3 col-md-12 col-sm-12 location">
+                        <div class="form-group col-lg-5 col-md-12 col-sm-12 location">
                             <span class="icon flaticon-briefcase"></span>
-                            <select class="chosen-select">
+                            <select name="category" class="chosen-select">
                                 <option value="all">Bütün kateqoriyalar</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->name }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -222,9 +223,9 @@
 
                         <!-- ls Switcher -->
                         <div class="ls-switcher">
-                            <div class="showing-result">
+                            {{-- <div class="showing-result">
                                 <div class="text">Ümumi <strong>{{ $job_count }}</strong> vakansiya</div>
-                            </div>
+                            </div> --}}
                             {{-- <div class="sort-by">
                                 <select class="chosen-select">
                                     <option>New Jobs</option>
@@ -246,6 +247,13 @@
                             </div> --}}
                         </div>
 
+                        @if ($jobs->isEmpty())
+                            {{-- <div class="alert-danger">Axtardığınız sorğu üzrə nəticə tapılmadı..</div> --}}
+                            {{-- <img src="images/searchnotfound.jpg" style="max-width:250px; justify-content: center;" --}}
+                            <div style="display: flex; justify-content: center;">
+                                <img src="images/nosearch.avif" style="max-width:500px;" alt="">
+                            </div>
+                        @endif
 
                         <!-- Job Block -->
                         @foreach ($jobs as $job)
@@ -259,9 +267,11 @@
                                                 href="{{ route('vacancy_show', ['id' => $job->id]) }}">{{ $job->title }}</a>
                                         </h4>
                                         <ul class="job-info">
-                                            <li><span class="icon flaticon-briefcase"></span> {{ $job->category->name }}
+                                            <li><span class="icon flaticon-briefcase"></span>
+                                                {{ $job->category->name }}
                                             </li>
-                                            <li><span class="icon flaticon-map-locator"></span> {{ $job->location }}</li>
+                                            <li><span class="icon flaticon-map-locator"></span> {{ $job->location }}
+                                            </li>
                                             <li><span class="icon flaticon-clock-3"></span>
                                                 @php
                                                     $date = explode(' ', $job->created_at);

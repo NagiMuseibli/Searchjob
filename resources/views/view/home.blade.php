@@ -22,11 +22,12 @@
 
                         <!-- Job Search Form -->
                         <div class="job-search-form">
-                            <form method="post" action="https://creativelayers.net/themes/superio/job-list-v10.html">
+                            <form method="get" action="{{ route('vacancies') }}">
+                                @csrf
                                 <div class="row">
                                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
                                         <span class="icon flaticon-search-1"></span>
-                                        <input type="text" name="field_name"
+                                        <input type="text" name="searchTerm"
                                             placeholder="İş adı, açar sözlər, və ya şirkət">
                                     </div>
                                     <!-- Form Group -->

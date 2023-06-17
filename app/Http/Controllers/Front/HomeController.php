@@ -75,9 +75,12 @@ class HomeController extends Controller
 
     public function show_vacancy($id)
     {
+        $check_job = Job::where('id', $id)->count();
+        if ($check_job == 0) {
+            return redirect('vacancies');
+        }
         $jobs = Job::with('category')->find($id);
         $category_id = $jobs->category->id;
-
         $related_jobs = Job::relatedJobs($category_id);
         $company = Job::with('company')->find($id);
         $job = Job::findOrFail($id);
