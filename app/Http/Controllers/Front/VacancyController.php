@@ -14,7 +14,7 @@ class VacancyController extends Controller
 
         $searchTerm = $request->searchTerm;
         $category = $request->category;
-
+        // dd($category);
         $jobs = Job::with('category', 'company')
             ->where(function ($query) use ($searchTerm, $category) {
                 $query->where('title', 'LIKE', "%$searchTerm%")
@@ -27,7 +27,7 @@ class VacancyController extends Controller
             })
             ->orderByDesc('created_at')
             ->paginate(5);
-
+        // dd($jobs);
 
         $job_count = count(Job::all());
 

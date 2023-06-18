@@ -23,14 +23,4 @@ class Company extends Model
     {
         return $this->hasMany(Job::class);
     }
-
-    public static function jobCompany()
-    {
-        /*  $sql = "
-            SELECT 
-            FROM companies
-            INNER JOIN jobs ON jobs.company_id = companies.id
-            WHERE 
-        "; */
-    }
 }
