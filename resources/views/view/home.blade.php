@@ -114,7 +114,8 @@
                         <div class="inner-box">
                             <div class="content">
                                 <span class="icon flaticon-web-programming"></span>
-                                <h4><a href="#">{{ $category->name }}</a></h4>
+                                <h4><a href="{{ route('vacancies') }}"
+                                        value="{{ $category->name }}">{{ $category->name }}</a></h4>
                                 {{-- <p>({{ $count_job }} aktiv vakansiya)</p> --}}
                             </div>
                         </div>

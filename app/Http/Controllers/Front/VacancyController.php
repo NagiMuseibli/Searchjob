@@ -31,7 +31,7 @@ class VacancyController extends Controller
 
         $job_count = count(Job::all());
 
-        //dd($jobs);
+        //dd($jobs);&category=all
         $categories = Category::all();
         return view('view.vacancies', [
             'jobs' => $jobs,
