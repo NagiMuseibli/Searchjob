@@ -60,6 +60,18 @@ class VacancyController extends Controller
             $jobs = Job::with('category', 'company')->orderByDesc('created_at')->paginate(5);
         }
 
+        /* $jobs = Job::query()
+            ->select('vacancies.*')
+            ->join('categories', 'vacancies.category_id', '=', 'categories.id')
+            ->join('companies', 'vacancies.company_id', '=', 'companies.id')
+            ->where('categories.id', $categoryId)
+            ->where('companies.company_name', $companyName)
+            ->where('vacancies.job_salary', '>=', $jobSalary)
+            ->where('vacancies.job_type', $jobType)
+            ->get(); */
+
+        if ($request->company != '') {
+        }
 
         // dd($jobs);
 
@@ -67,9 +79,11 @@ class VacancyController extends Controller
 
         //dd($jobs);&category=all
         $categories = Category::all();
+        $companies = Company::all();
         return view('view.vacancies', [
             'jobs' => $jobs,
             'categories' => $categories,
+            'companies' => $companies,
             'job_count' => $job_count,
         ]);
     }
