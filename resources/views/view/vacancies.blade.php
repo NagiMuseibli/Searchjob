@@ -8,12 +8,12 @@
     <section class="page-title style-two">
         <div class="auto-container">
             <!-- <div class="title-outer">
-                                                                                                                                                                                                                                                                                                                                  <h1>Find Jobs</h1>
-                                                                                                                                                                                                                                                                                                                                  <ul class="page-breadcrumb">
-                                                                                                                                                                                                                                                                                                                                      <li><a href="index.html">Home</a></li>
-                                                                                                                                                                                                                                                                                                                                      <li>Jobs</li>
-                                                                                                                                                                                                                                                                                                                                  </ul>
-                                                                                                                                                                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                                                                                                                                                          <h1>Find Jobs</h1>
+                                                                                                                                                                                                                                                                                                                                          <ul class="page-breadcrumb">
+                                                                                                                                                                                                                                                                                                                                              <li><a href="index.html">Home</a></li>
+                                                                                                                                                                                                                                                                                                                                              <li>Jobs</li>
+                                                                                                                                                                                                                                                                                                                                          </ul>
+                                                                                                                                                                                                                                                                                                                                      </div> -->
 
             <!-- Job Search Form -->
             <div class="job-search-form">
@@ -36,9 +36,9 @@
                         <div class="form-group col-lg-5 col-md-12 col-sm-12 location">
                             <span class="icon flaticon-briefcase"></span>
                             <select name="category" class="chosen-select">
-                                <option value="all">Bütün kateqoriyalar</option>
+                                <option value="">Bütün kateqoriyalar</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Models\Job;
 
@@ -15,7 +16,7 @@ class VacancyController extends Controller
         $searchTerm = $request->searchTerm;
         $category = $request->category;
         // dd($category);
-        $jobs = Job::with('category', 'company')
+        /*  $jobs = Job::with('category', 'company')
             ->where(function ($query) use ($searchTerm, $category) {
                 $query->where('title', 'LIKE', "%$searchTerm%")
                     ->orWhereHas('category', function ($query) use ($category) {
@@ -26,7 +27,40 @@ class VacancyController extends Controller
                     });
             })
             ->orderByDesc('created_at')
-            ->paginate(5);
+            ->paginate(5); */
+        $query = Job::query();
+
+
+        if ($request->searchTerm != '' || $request->category != '') {
+            // Search by vacancy name
+            if ($request->has('searchTerm')) {
+                $query->where('title', 'LIKE', '%' . $request->input('searchTerm') . '%');
+            }
+
+            // Search by category
+            if ($request->has('category')) {
+                $category = Category::where('id', $request->input('category'))->first();
+                if ($category) {
+                    $query->where('category_id', $category->id);
+                }
+            }
+
+            // Search by company
+            if ($request->has('company')) {
+                $company = Company::where('name', $request->input('company'))->first();
+                if ($company) {
+                    $query->where('company_id', $company->id);
+                }
+            }
+
+
+            $jobs = $query->orderByDesc('created_at')->paginate(5);
+        } else {
+            $jobs = Job::with('category', 'company')->orderByDesc('created_at')->paginate(5);
+        }
+
+
+
         // dd($jobs);
 
         $job_count = count(Job::all());
