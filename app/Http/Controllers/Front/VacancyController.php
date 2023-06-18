@@ -31,7 +31,13 @@ class VacancyController extends Controller
         $query = Job::query();
 
 
-        if ($request->searchTerm != '' || $request->category != '') {
+        if (
+            $request->searchTerm != ''
+            || $request->category != ''
+            || $request->company != ''
+            || $request->city != ''
+            || $request->work_graphic != ''
+        ) {
             // Search by vacancy name
             if ($request->has('searchTerm')) {
                 $query->where('title', 'LIKE', '%' . $request->input('searchTerm') . '%');
@@ -44,14 +50,22 @@ class VacancyController extends Controller
                     $query->where('category_id', $category->id);
                 }
             }
-
             // Search by company
-            /* if ($request->has('searchTerm')) {
-                $company = Company::where('company_name', 'LIKE', '%' . $request->input('searchTerm' . '%'))->first();
+            if ($request->company) {
+                $company = Company::where('id', $request->input('company'))->first();
                 if ($company) {
                     $query->where('company_id', $company->id);
                 }
-            } */
+            }
+            // Search by city
+            if ($request->city) {
+                $query->where('location',  $request->input('city'));
+            }
+            // Search by work_graphic
+            if ($request->work_graphic) {
+                $query->where('work_hour', $request->input('work_graphic'));
+            }
+            // Search by salary soon...
 
 
             $jobs = $query->orderByDesc('created_at')->paginate(5);
@@ -60,24 +74,7 @@ class VacancyController extends Controller
             $jobs = Job::with('category', 'company')->orderByDesc('created_at')->paginate(5);
         }
 
-        /* $jobs = Job::query()
-            ->select('vacancies.*')
-            ->join('categories', 'vacancies.category_id', '=', 'categories.id')
-            ->join('companies', 'vacancies.company_id', '=', 'companies.id')
-            ->where('categories.id', $categoryId)
-            ->where('companies.company_name', $companyName)
-            ->where('vacancies.job_salary', '>=', $jobSalary)
-            ->where('vacancies.job_type', $jobType)
-            ->get(); */
-
-        if ($request->company != '') {
-        }
-
-        // dd($jobs);
-
         $job_count = count(Job::all());
-
-        //dd($jobs);&category=all
         $categories = Category::all();
         $companies = Company::all();
         return view('view.vacancies', [

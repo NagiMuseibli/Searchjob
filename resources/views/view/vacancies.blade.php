@@ -8,12 +8,12 @@
     <section class="page-title style-two">
         <div class="auto-container">
             <!-- <div class="title-outer">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <h1>Find Jobs</h1>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <ul class="page-breadcrumb">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <li><a href="index.html">Home</a></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <li>Jobs</li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <h1>Find Jobs</h1>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <ul class="page-breadcrumb">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <li><a href="index.html">Home</a></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <li>Jobs</li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div> -->
 
             <!-- Job Search Form -->
             <div class="job-search-form">
@@ -66,142 +66,132 @@
                 <div class="filters-column col-lg-4 col-md-12 col-sm-12">
                     <div class="inner-column">
                         <div class="filters-outer">
-                            <button type="button" class="theme-btn close-filters">X</button>
+                            <form action="{{ route('vacancies') }}" method="get">
+                                @csrf
+                                <button type="button" class="theme-btn close-filters">X</button>
+                                <!-- Filter Block -->
+                                <div class="filter-block">
+                                    <h4>Şirkət</h4>
+                                    <div class="form-group">
+                                        <select class="chosen-select" name="company">
+                                            <option value="">Şirkət seç</option>
+                                            @foreach ($companies as $company)
+                                                <option value="{{ $company->id }}">{{ $company->company_name }}</option>
+                                            @endforeach
 
-                            <!-- Filter Block -->
-                            {{-- <div class="filter-block">
-                                <h4>Şirkət</h4>
-                                <div class="form-group">
-                                    <input type="text" name="listing-search" placeholder="Şirkət adı">
-                                    <span class="icon flaticon-search-3"></span>
+
+                                        </select>
+                                        <span class="icon flaticon-briefcase"></span>
+                                    </div>
                                 </div>
-                            </div> --}}
+                                <div class="filter-block">
+                                    <h4>Şəhər</h4>
+                                    <div class="form-group">
+                                        <select class="chosen-select" name="city">
+                                            <option value="">Şəhər seç</option>
+                                            <option value="Ağdaş">Ağdaş</option>
+                                            <option value="Ağcabədi">Ağcabədi</option>
+                                            <option value="Ağstafa">Ağstafa</option>
+                                            <option value="Ağsu">Ağsu</option>
+                                            <option value="Astara">Astara</option>
+                                            <option value="Bakı">Bakı </option>
+                                            <option value="Balakən">Balakən </option>
+                                            <option value="Bərdə">Bərdə </option>
+                                            <option value="Beyləqan">Beyləqan </option>
+                                            <option value="Biləsuvar">Biləsuvar </option>
+                                            <option value="Füzuli">Füzuli </option>
+                                            <option value="Qəbələ">Qəbələ </option>
+                                            <option value="Gəncə">Gəncə </option>
+                                            <option value="Göranboy">Göranboy</option>
+                                            <option value="Göyçay">Göyçay</option>
+                                            <option value="Göygöl">Göygöl </option>
+                                            <option value="Hacıqabul">Hacıqabul </option>
+                                            <option value="İmişli">İmişli </option>
+                                            <option value="İsmayıllı">İsmayıllı </option>
+                                            <option value="Cəbrayıl">Cəbrayıl </option>
+                                            <option value="Cəlilabad">Cəlilabad </option>
+                                            <option value="Xaçmaz">Xaçmaz </option>
+                                            <option value="Xankəndi">Xankəndi </option>
+                                            <option value="Xanlar">Xanlar </option>
+                                            <option value="Kürdəmir">Kürdəmir </option>
+                                            <option value="Lənkəran">Lənkəran </option>
+                                            <option value="Laçın">Laçın </option>
+                                            <option value="Lerik">Lerik </option>
+                                            <option value="Masallı">Masallı </option>
+                                            <option value="Mingəçevir">Mingəçevir </option>
+                                            <option value="Naftalan">Naftalan </option>
+                                            <option value="Naxçıvan">Naxçıvan </option>
+                                            <option value="Neftçala">Neftçala </option>
+                                            <option value="Oğuz">Oğuz </option>
+                                            <option value="Ordubad">Ordubad </option>
+                                            <option value="Qəbələ">Qəbələ </option>
+                                            <option value="Qax">Qax </option>
+                                            <option value="Qazax">Qazax </option>
+                                            <option value="Quba">Quba </option>
+                                            <option value="Qubadlı">Qubadlı </option>
+                                            <option value="Qusar">Qusar </option>
+                                            <option value="Saatlı">Saatlı </option>
+                                            <option value="Sabirabad">Sabirabad </option>
+                                            <option value="Şabran">Şabran </option>
+                                            <option value="Şəki">Şəki </option>
+                                            <option value="Şamaxı">Şamaxı </option>
+                                            <option value="Şəmkir">Şəmkir </option>
+                                            <option value="Şirvan">Şirvan </option>
+                                            <option value="Şuşa">Şuşa </option>
+                                            <option value="Siyəzən">Siyəzən </option>
+                                            <option value="Sumqayıt">Sumqayıt </option>
+                                            <option value="Tartar">Tartar</option>
+                                            <option value="Tovuz">Tovuz </option>
+                                            <option value="Ucar">Ucar </option>
+                                            <option value="Yardımlı">Yardımlı </option>
+                                            <option value="Yevlax">Yevlax </option>
+                                            <option value="Zəngilan">Zəngilan </option>
+                                            <option value="Zaqatala">Zaqatala </option>
+                                            <option value="Siyəzən">Siyəzən </option>
+                                            <option value="Zərdab">Zərdab </option>
 
-
-
-                            <!-- Filter Block -->
-                            <div class="filter-block">
-                                <h4>Şirkət</h4>
-                                <div class="form-group">
-                                    <select class="chosen-select" name="company">
-                                        <option>Şirkət seç</option>
-                                        @foreach ($companies as $company)
-                                            <option value="{{ $company->id }}">{{ $company->company_name }}</option>
-                                        @endforeach
-
-
-                                    </select>
-                                    <span class="icon flaticon-briefcase"></span>
-                                </div>
-                            </div>
-                            <div class="filter-block">
-                                <h4>Şəhər</h4>
-                                <div class="form-group">
-                                    <select class="chosen-select" name="city">
-                                        <option>Şəhər seç</option>
-                                        <option value="Ağdaş">Ağdaş</option>
-                                        <option value="Ağcabədi">Ağcabədi</option>
-                                        <option value="Ağstafa">Ağstafa</option>
-                                        <option value="Ağsu">Ağsu</option>
-                                        <option value="Astara">Astara</option>
-                                        <option value="Bakı">Bakı </option>
-                                        <option value="Balakən">Balakən </option>
-                                        <option value="Bərdə">Bərdə </option>
-                                        <option value="Beyləqan">Beyləqan </option>
-                                        <option value="Biləsuvar">Biləsuvar </option>
-                                        <option value="Füzuli">Füzuli </option>
-                                        <option value="Qəbələ">Qəbələ </option>
-                                        <option value="Gəncə">Gəncə </option>
-                                        <option value="Göranboy">Göranboy</option>
-                                        <option value="Göyçay">Göyçay</option>
-                                        <option value="Göygöl">Göygöl </option>
-                                        <option value="Hacıqabul">Hacıqabul </option>
-                                        <option value="İmişli">İmişli </option>
-                                        <option value="İsmayıllı">İsmayıllı </option>
-                                        <option value="Cəbrayıl">Cəbrayıl </option>
-                                        <option value="Cəlilabad">Cəlilabad </option>
-                                        <option value="Xaçmaz">Xaçmaz </option>
-                                        <option value="Xankəndi">Xankəndi </option>
-                                        <option value="Xanlar">Xanlar </option>
-                                        <option value="Kürdəmir">Kürdəmir </option>
-                                        <option value="Lənkəran">Lənkəran </option>
-                                        <option value="Laçın">Laçın </option>
-                                        <option value="Lerik">Lerik </option>
-                                        <option value="Masallı">Masallı </option>
-                                        <option value="Mingəçevir">Mingəçevir </option>
-                                        <option value="Naftalan">Naftalan </option>
-                                        <option value="Naxçıvan">Naxçıvan </option>
-                                        <option value="Neftçala">Neftçala </option>
-                                        <option value="Oğuz">Oğuz </option>
-                                        <option value="Ordubad">Ordubad </option>
-                                        <option value="Qəbələ">Qəbələ </option>
-                                        <option value="Qax">Qax </option>
-                                        <option value="Qazax">Qazax </option>
-                                        <option value="Quba">Quba </option>
-                                        <option value="Qubadlı">Qubadlı </option>
-                                        <option value="Qusar">Qusar </option>
-                                        <option value="Saatlı">Saatlı </option>
-                                        <option value="Sabirabad">Sabirabad </option>
-                                        <option value="Şabran">Şabran </option>
-                                        <option value="Şəki">Şəki </option>
-                                        <option value="Şamaxı">Şamaxı </option>
-                                        <option value="Şəmkir">Şəmkir </option>
-                                        <option value="Şirvan">Şirvan </option>
-                                        <option value="Şuşa">Şuşa </option>
-                                        <option value="Siyəzən">Siyəzən </option>
-                                        <option value="Sumqayıt">Sumqayıt </option>
-                                        <option value="Tartar">Tartar</option>
-                                        <option value="Tovuz">Tovuz </option>
-                                        <option value="Ucar">Ucar </option>
-                                        <option value="Yardımlı">Yardımlı </option>
-                                        <option value="Yevlax">Yevlax </option>
-                                        <option value="Zəngilan">Zəngilan </option>
-                                        <option value="Zaqatala">Zaqatala </option>
-                                        <option value="Siyəzən">Siyəzən </option>
-                                        <option value="Zərdab">Zərdab </option>
-
-                                    </select>
-                                    <span class="icon flaticon-briefcase"></span>
-                                </div>
-                            </div>
-
-                            <div class="filter-block">
-                                <h4>İş qrafiki</h4>
-                                <div class="form-group">
-                                    <select class="chosen-select" name="work_graphic">
-                                        <option>İş qrafiki seç</option>
-                                        <option value="Full time">Full time</option>
-                                        <option value="Part time">Part time</option>
-                                        <option value="Freelance">Freelance</option>
-                                        <option value="Distant">Distant</option>
-
-                                    </select>
-                                    <span class="icon flaticon-briefcase"></span>
-                                </div>
-                            </div>
-
-                            <!-- Filter Block -->
-                            <div class="filter-block">
-                                <h4>Əmək haqqı</h4>
-
-                                <div class="range-slider-one salary-range">
-                                    <div class="salary-range-slider"></div>
-                                    <div class="input-outer">
-                                        <div class="amount-outer">
-                                            <span class="amount salary-amount">
-                                                $<span class="min">0</span>
-                                                $<span class="max">0</span>
-                                            </span>
-                                        </div>
+                                        </select>
+                                        <span class="icon flaticon-briefcase"></span>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-lg-2 col-md-12 col-sm-12 text-right">
-                                    <button type="submit" class="theme-btn btn-style-one">Axtar</button>
-                                </div>
-                            </div>
+                                <div class="filter-block">
+                                    <h4>İş qrafiki</h4>
+                                    <div class="form-group">
+                                        <select class="chosen-select" name="work_graphic">
+                                            <option value="">İş qrafiki seç</option>
+                                            <option value="Full time">Full time</option>
+                                            <option value="Part time">Part time</option>
+                                            <option value="Freelance">Freelance</option>
+                                            <option value="Distant">Distant</option>
 
-                            <!-- Filter Block -->
+                                        </select>
+                                        <span class="icon flaticon-briefcase"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Filter Block -->
+                                <div class="filter-block">
+                                    <h4>Əmək haqqı</h4>
+
+                                    <div class="range-slider-one salary-range">
+                                        <div class="salary-range-slider"></div>
+                                        <div class="input-outer">
+                                            <div class="amount-outer">
+                                                <span class="amount salary-amount">
+                                                    $<span class="min">0</span>
+                                                    $<span class="max">0</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-2 col-md-12 col-sm-12 text-right">
+                                        <button type="submit" class="theme-btn btn-style-one">Axtar</button>
+                                    </div>
+                                </div>
+                            </form>
+
                         </div>
 
                         <!-- Call To Action -->
