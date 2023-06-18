@@ -8,12 +8,12 @@
     <section class="page-title style-two">
         <div class="auto-container">
             <!-- <div class="title-outer">
-                                                                                                                                                                                                                                                                                                                                                  <h1>Find Jobs</h1>
-                                                                                                                                                                                                                                                                                                                                                  <ul class="page-breadcrumb">
-                                                                                                                                                                                                                                                                                                                                                      <li><a href="index.html">Home</a></li>
-                                                                                                                                                                                                                                                                                                                                                      <li>Jobs</li>
-                                                                                                                                                                                                                                                                                                                                                  </ul>
-                                                                                                                                                                                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <h1>Find Jobs</h1>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <ul class="page-breadcrumb">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <li><a href="index.html">Home</a></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <li>Jobs</li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div> -->
 
             <!-- Job Search Form -->
             <div class="job-search-form">
@@ -68,113 +68,56 @@
                         <div class="filters-outer">
                             <button type="button" class="theme-btn close-filters">X</button>
 
-                            <!-- Switchbox Outer -->
-                            <div class="switchbox-outer">
-                                <h4>Job type</h4>
-                                <ul class="switchbox">
-                                    <li>
-                                        <label class="switch">
-                                            <input type="checkbox" checked>
-                                            <span class="slider round"></span>
-                                            <span class="title">Freelance</span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="switch">
-                                            <input type="checkbox">
-                                            <span class="slider round"></span>
-                                            <span class="title">Full Time</span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="switch">
-                                            <input type="checkbox">
-                                            <span class="slider round"></span>
-                                            <span class="title">Internship</span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="switch">
-                                            <input type="checkbox">
-                                            <span class="slider round"></span>
-                                            <span class="title">Part Time</span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="switch">
-                                            <input type="checkbox">
-                                            <span class="slider round"></span>
-                                            <span class="title">Temporary</span>
-                                        </label>
-                                    </li>
-                                </ul>
+                            <!-- Filter Block -->
+                            {{-- <div class="filter-block">
+                                <h4>Şirkət</h4>
+                                <div class="form-group">
+                                    <input type="text" name="listing-search" placeholder="Şirkət adı">
+                                    <span class="icon flaticon-search-3"></span>
+                                </div>
+                            </div> --}}
+
+
+
+                            <!-- Filter Block -->
+                            <div class="filter-block">
+                                <h4>Şirkət</h4>
+                                <div class="form-group">
+                                    <select class="chosen-select">
+                                        <option>Şirkət seç</option>
+                                        <option>Residential</option>
+
+                                    </select>
+                                    <span class="icon flaticon-briefcase"></span>
+                                </div>
+                            </div>
+                            <div class="filter-block">
+                                <h4>Şəhər</h4>
+                                <div class="form-group">
+                                    <select class="chosen-select">
+                                        <option>Şəhər seç</option>
+                                        <option>Residential</option>
+
+                                    </select>
+                                    <span class="icon flaticon-briefcase"></span>
+                                </div>
                             </div>
 
-                            <!-- Checkboxes Ouer -->
-                            <div class="checkbox-outer">
-                                <h4>Date Posted</h4>
-                                <ul class="checkboxes">
-                                    <li>
-                                        <input id="check-f" type="checkbox" name="check">
-                                        <label for="check-f">All</label>
-                                    </li>
-                                    <li>
-                                        <input id="check-a" type="checkbox" name="check">
-                                        <label for="check-a">Last Hour</label>
-                                    </li>
-                                    <li>
-                                        <input id="check-b" type="checkbox" name="check">
-                                        <label for="check-b">Last 24 Hours</label>
-                                    </li>
-                                    <li>
-                                        <input id="check-c" type="checkbox" name="check">
-                                        <label for="check-c">Last 7 Days</label>
-                                    </li>
-                                    <li>
-                                        <input id="check-d" type="checkbox" name="check">
-                                        <label for="check-d">Last 14 Days</label>
-                                    </li>
-                                    <li>
-                                        <input id="check-e" type="checkbox" name="check">
-                                        <label for="check-e">Last 30 Days</label>
-                                    </li>
-                                </ul>
-                            </div>
+                            <div class="filter-block">
+                                <h4>İş qrafiki</h4>
+                                <div class="form-group">
+                                    <select class="chosen-select">
+                                        <option>İş qrafiki seç</option>
+                                        <option>Residential</option>
 
-                            <!-- Checkboxes Ouer -->
-                            <div class="checkbox-outer">
-                                <h4>Experience Level</h4>
-                                <ul class="checkboxes square">
-                                    <li>
-                                        <input id="check-ba" type="checkbox" name="check">
-                                        <label for="check-ba">All</label>
-                                    </li>
-                                    <li>
-                                        <input id="check-bb" type="checkbox" name="check">
-                                        <label for="check-bb">Internship</label>
-                                    </li>
-                                    <li>
-                                        <input id="check-bc" type="checkbox" name="check">
-                                        <label for="check-bc">Entry level</label>
-                                    </li>
-                                    <li>
-                                        <input id="check-bd" type="checkbox" name="check">
-                                        <label for="check-bd">Associate</label>
-                                    </li>
-                                    <li>
-                                        <input id="check-be" type="checkbox" name="check">
-                                        <label for="check-be">Mid-Senior level4</label>
-                                    </li>
-                                    <li>
-                                        <button class="view-more"><span class="icon flaticon-plus"></span> View
-                                            More</button>
-                                    </li>
-                                </ul>
+                                    </select>
+                                    <span class="icon flaticon-briefcase"></span>
+                                </div>
                             </div>
 
                             <!-- Filter Block -->
                             <div class="filter-block">
-                                <h4>Salary</h4>
+                                <h4>Əmək haqqı</h4>
 
                                 <div class="range-slider-one salary-range">
                                     <div class="salary-range-slider"></div>
@@ -187,31 +130,24 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="form-group col-lg-2 col-md-12 col-sm-12 text-right">
+                                    <button type="submit" class="theme-btn btn-style-one">Axtar</button>
+                                </div>
                             </div>
 
                             <!-- Filter Block -->
-                            <div class="filter-block">
-                                <h4>Tags</h4>
-                                <ul class="tags-style-one">
-                                    <li><a href="#">app</a></li>
-                                    <li><a href="#">administrative</a></li>
-                                    <li><a href="#">android</a></li>
-                                    <li><a href="#">wordpress</a></li>
-                                    <li><a href="#">design</a></li>
-                                    <li><a href="#">react</a></li>
-                                </ul>
-                            </div>
                         </div>
 
                         <!-- Call To Action -->
-                        <div class="call-to-action-four">
+                        {{-- <div class="call-to-action-four">
                             <h5>Recruiting?</h5>
                             <p>Advertise your jobs to millions of monthly users and search 15.8 million CVs in our database.
                             </p>
                             <a href="#" class="theme-btn btn-style-one bg-blue"><span class="btn-title">Start
                                     Recruiting Now</span></a>
                             <div class="image" style="background-image: url(images/resource/ads-bg-4.png);"></div>
-                        </div>
+                        </div> --}}
                         <!-- End Call To Action -->
                     </div>
                 </div>
