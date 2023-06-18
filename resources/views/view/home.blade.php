@@ -70,7 +70,7 @@
                         <!-- Info BLock Two -->
                         <div class="info_block_two anm wow fadeIn" data-wow-delay="2000ms" data-speed-x="1"
                             data-speed-y="1">
-                            <p>0 Namizəd</p>
+                            <p>{{ $userCount }} Istifadəçi</p>
                             <div class="image"><img src="images/resource/multi-peoples.png" alt=""></div>
                         </div>
 
@@ -78,7 +78,7 @@
                         <div class="info_block_three anm wow fadeIn" data-wow-delay="1500ms" data-speed-x="4"
                             data-speed-y="4">
                             <span class="icon flaticon-briefcase"></span>
-                            <p>0 Şirkət</p>
+                            <p>{{ count($companies) }} Şirkət</p>
                             {{-- <span class="sub-text">0</span> --}}
                             <span class="right_icon fa fa-check"></span>
                         </div>

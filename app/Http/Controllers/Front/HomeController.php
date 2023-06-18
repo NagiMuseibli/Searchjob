@@ -65,11 +65,13 @@ class HomeController extends Controller
 
         $categories = Category::all();
         $companies = Company::All();
+        $userCount = User::count();
         //dd(count($jobs));
         return view('view.home', [
             'jobs' => $jobs,
             'categories' => $categories,
             'companies' => $companies,
+            'userCount' => $userCount,
         ]);
     }
 

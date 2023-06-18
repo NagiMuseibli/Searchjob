@@ -39,12 +39,12 @@ class VacancyController extends Controller
             || $request->work_graphic != ''
         ) {
             // Search by vacancy name
-            if ($request->has('searchTerm')) {
+            if ($request->searchTerm) {
                 $query->where('title', 'LIKE', '%' . $request->input('searchTerm') . '%');
             }
 
             // Search by category
-            if ($request->has('category')) {
+            if ($request->category) {
                 $category = Category::where('id', $request->input('category'))->first();
                 if ($category) {
                     $query->where('category_id', $category->id);
