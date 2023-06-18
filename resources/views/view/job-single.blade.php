@@ -134,7 +134,16 @@
                                         <li>
                                             <i class="icon icon-expiry"></i>
                                             <h5>Bitmə tarixi:</h5>
-                                            <span>{{ $jobs->deadline }}</span>
+                                            <span>
+                                                @php
+                                                    if ($jobs->deadline < date('Y-m-d')) {
+                                                        $deadline = 'Bitmişdir';
+                                                    } else {
+                                                        $deadline = $jobs->deadline;
+                                                    }
+                                                @endphp
+                                                {{ $deadline }}
+                                            </span>
                                         </li>
                                         <li>
                                             <i class="icon icon-location"></i>

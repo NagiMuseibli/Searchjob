@@ -23,7 +23,7 @@
                         <!-- Related Jobs -->
                         <div class="related-jobs">
                             <div class="title-box">
-                                <h3>{{ count($jobs) }} aktiv vakansiya</h3>
+                                <h3>{{ count($jobs) }} vakansiya</h3>
                                 <div class="text">{{-- 2020 jobs live - 293 added today. --}}</div>
                             </div>
 

@@ -45,6 +45,7 @@ class job extends Model
         JOIN companies ON jobs.company_id = companies.id
         WHERE jobs.category_id = :category_id
         AND jobs.status = 1
+        ORDER BY jobs.created_at DESC
         LIMIT 4
         ", ['category_id' => $category_id]);
 

@@ -46,19 +46,19 @@ class VacancyController extends Controller
             }
 
             // Search by company
-            if ($request->has('company')) {
-                $company = Company::where('name', $request->input('company'))->first();
+            /* if ($request->has('searchTerm')) {
+                $company = Company::where('company_name', 'LIKE', '%' . $request->input('searchTerm' . '%'))->first();
                 if ($company) {
                     $query->where('company_id', $company->id);
                 }
-            }
+            } */
 
 
             $jobs = $query->orderByDesc('created_at')->paginate(5);
+            // dd($jobs);
         } else {
             $jobs = Job::with('category', 'company')->orderByDesc('created_at')->paginate(5);
         }
-
 
 
         // dd($jobs);
