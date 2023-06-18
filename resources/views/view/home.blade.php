@@ -110,14 +110,21 @@
 
                 @foreach ($categories as $category)
                     <div class="category-block col-lg-4 col-md-6 col-sm-12">
-                        <div class="inner-box">
-                            <div class="content">
-                                <span class="icon flaticon-web-programming"></span>
-                                <h4><a href="{{ route('vacancies') }}"
-                                        value="{{ $category->name }}">{{ $category->name }}</a></h4>
-                                {{-- <p>({{ $count_job }} aktiv vakansiya)</p> --}}
+                        <form action="{{ route('vacancies') }}" method="get">
+                            @csrf
+                            <div class="inner-box">
+                                <div class="content">
+                                    <span class="icon flaticon-web-programming"></span>
+                                    {{-- <h4><a href="{{ route('vacancies') }}" name="category"
+                                            value="{{ $category->id }}">{{ $category->name }}</a>
+                                    </h4> --}}
+                                    {{-- <span name="category" value="{{ $category->id }}">{{ $category->name }}</span> --}}
+                                    <button type="submit" name="category" class="text-left"
+                                        value="{{ $category->id }}">{{ $category->name }}</button>
+                                    {{-- <p>({{ $count_job }} aktiv vakansiya)</p> --}}
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 @endforeach
 
