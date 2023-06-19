@@ -88,6 +88,7 @@
                     <!-- Main Menu End-->
                 </div>
 
+                <?php if(!auth()->check()){?>
                 <div class="outer-box">
                     <!-- Add Listing -->
                     <a href="/" class="upload-cv">CV yüklə</a>
@@ -98,6 +99,18 @@
                         <a href="{{ route('company') }}" class="theme-btn btn-style-one">Vakansiya əlavə et</a>
                     </div>
                 </div>
+                <?php } else{?>
+                <div class="outer-box">
+                    <!-- Add Listing -->
+                    <a href="{{ route('company') }}" class="upload-cv">Profilə get</a>
+                    <!-- Login/Register -->
+                    {{-- <div class="btn-box">
+                        <a href="{{ route('login') }}" class="theme-btn btn-style-three ">Giriş /
+                            Qeydiyyat</a>
+                        <a href="{{ route('company') }}" class="theme-btn btn-style-one">Vakansiya əlavə et</a>
+                    </div> --}}
+                </div>
+                <?php }?>
             </div>
 
             <!-- Mobile Header -->
