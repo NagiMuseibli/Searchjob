@@ -63,6 +63,7 @@ class VacancyController extends Controller
         $job_count = count(Job::all());
         $categories = Category::all();
         $companies = Company::all();
+        // return response()->json(['jobs' => $jobs]);
         return view('view.vacancies', [
             'jobs' => $jobs,
             'categories' => $categories,

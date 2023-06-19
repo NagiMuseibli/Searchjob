@@ -103,10 +103,10 @@
                             <div class="form-group">
                                 <button class="theme-btn btn-style-one" type="submit" name="log-in">Daxil ol</button>
                             </div>
-                            @if (session('message'))
+                            @if (session('danger_login'))
                                 <div class="alert alert-danger">
                                     <ul>
-                                        {{ session('message') }}
+                                        {{ session('danger_login') }}
                                     </ul>
                                 </div>
                             @endif

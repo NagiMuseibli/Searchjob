@@ -12,6 +12,6 @@ class AdminCandidateController extends Controller
     public function index()
     {
         $user = User::find(Auth::id());
-        return view('Emp-Cond.app', compact('user'));
+        return view('view.user.candidate', compact('user'));
     }
 }

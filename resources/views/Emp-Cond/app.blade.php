@@ -322,7 +322,8 @@
             <div id="nav-mobile"></div>
         </header>
         <!--End Main Header -->
-
+        @yield('user.company')
+        @yield('user.candidate')
         <!-- Sidebar Backdrop -->
         <div class="sidebar-backdrop"></div>
 

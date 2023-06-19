@@ -25,7 +25,7 @@ class RegisterCompRequest extends FormRequest
     {
         return [
             'company_name' => 'required|string|max:255',
-            'about_company' => 'required|string|max:255',
+            'about_company' => 'required|string',
             'email' => 'required|string|email|max:255|unique:users',
             'company_cv_email' => 'required|string|email|max:255',
             'company_tel' => 'required|string|max:255',

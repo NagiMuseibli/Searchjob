@@ -23,7 +23,7 @@ class LoginController extends Controller
         $company = Company::where('email', '=', $request->email)->count();
         // dd($company);
         if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->back()->with('message', 'Email və ya parol yalnışdır');
+            return redirect()->back()->with('danger_login', 'Email və ya parol yalnışdır');
         }
         if ($company == 1) {
             return redirect()->route('company');

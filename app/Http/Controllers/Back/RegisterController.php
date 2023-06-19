@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterCompRequest;
 use App\Http\Requests\RegisterCondRequest;
+use App\Models\candidate;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -30,14 +31,23 @@ class RegisterController extends Controller
         //dd($request);
         if ($validated) {
             //dd($request);
-            // Create a new user and save it to the database
-            $user = new User();
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->is_moderator = 0;
-            $user->password = Hash::make($request->password);
-            $user->save();
+            $id = DB::table('users')->insertGetId(
+                [
+                    'name' =>  $request->name,
+                    'email' => $request->email,
+                    'is_moderator' => 0,
+                    'password' => Hash::make($request->password),
+                    'role' => 'candidate'
 
+                ]
+            );
+
+            $candidate = new candidate();
+            $candidate->user_id = $id;
+            $candidate->name = $request->name;
+            $candidate->email = $request->email;
+            $candidate->image = 'nopic-candidate.jpg';
+            $candidate->save();
             // Log the user in and redirect to the home page
             //Auth::login($user);
             return redirect()->route('login');
@@ -60,15 +70,10 @@ class RegisterController extends Controller
                     'email' => $request->email,
                     'is_moderator' => 0,
                     'password' => Hash::make($request->password),
+                    'role' => 'company'
 
                 ]
             );
-            /* $user = new User();
-            $user->name = $request->company_name;
-            $user->email = $request->company_email;
-            $user->is_moderator = 0;
-            $user->password = Hash::make($request->password);
-            $user->save(); */
 
             $company = new Company();
             $company->company_name = $request->company_name;

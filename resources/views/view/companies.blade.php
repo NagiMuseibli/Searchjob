@@ -98,7 +98,7 @@
                                                 <?php } ?>
                                             </li>
                                         </ul>
-                                        <div class="job-type">{{ $jobs->count }} vakansiya</div>
+                                        {{-- <div class="job-type">{{ $jobs->count }} vakansiya</div> --}}
                                     </div>
                                 </div>
                             @endforeach
