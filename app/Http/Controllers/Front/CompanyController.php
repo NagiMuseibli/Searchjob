@@ -9,10 +9,23 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $companies = Company::paginate(9);
+        $query = Company::query();
+        if ($request->company != '') {
+            if ($request->company) {
+                $query->where('company_name', 'LIKE', '%' . $request->company . '%');
+            }
+
+            $companies = $query->orderByDesc('created_at')->paginate(9);
+        } else {
+            $companies = Company::paginate(9);
+        }
+
         $company_count = count(Company::all());
+
+
+
         // $jobs = Job::with('company')->get();
         $jobs = Job::countCompanyJobs();
         return view('view.companies', [

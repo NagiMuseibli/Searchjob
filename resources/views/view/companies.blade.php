@@ -30,24 +30,27 @@
                 <!-- Filters Column -->
                 <div class="filters-column col-lg-4 col-md-12 col-sm-12">
                     <div class="inner-column pd-right">
-                        <div class="filters-outer">
-                            <button type="button" class="theme-btn close-filters">X</button>
+                        <form action="{{ route('companies') }}" method="get">
+                            <div class="filters-outer">
+                                <button type="button" class="theme-btn close-filters">X</button>
 
-                            <!-- Filter Block -->
-                            <div class="filter-block">
-                                <h4>Açar sözü ilə axtar</h4>
-                                <div class="form-group">
-                                    <input type="text" name="listing-search" placeholder="Şirkət adı">
-                                    <span class="icon flaticon-search-3"></span>
+                                <!-- Filter Block -->
+                                <div class="filter-block">
+                                    <h4>Açar sözü ilə axtar</h4>
+                                    <div class="form-group">
+                                        <input type="text" name="company" placeholder="Şirkət adı">
+                                        <span class="icon flaticon-search-3"></span>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <!-- Filter Block -->
-                            <div class="form-group col-lg-2 col-md-12 col-sm-12 text-right">
-                                <button type="submit" class="theme-btn btn-style-one">Axtar</button>
-                            </div>
+                                <!-- Filter Block -->
+                                <div class="form-group col-lg-2 col-md-12 col-sm-12 text-right">
+                                    <button type="submit" class="theme-btn btn-style-one">Axtar</button>
+                                </div>
 
-                        </div>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
 
@@ -57,15 +60,22 @@
                         <button type="button" class="theme-btn btn-style-two toggle-filters">Show Filters</button>
 
                         <!-- ls Switcher -->
-                        <div class="ls-switcher">
+                        {{-- <div class="ls-switcher">
                             <div class="showing-result">
                                 <div class="text">Ümumi <strong>{{ $company_count }}</strong> şirkət</div>
                             </div>
 
-                        </div>
+                        </div> --}}
 
 
                         <div class="row">
+                            @if ($companies->isEmpty())
+                                {{-- <div class="alert-danger">Axtardığınız sorğu üzrə nəticə tapılmadı..</div> --}}
+                                {{-- <img src="images/searchnotfound.jpg" style="max-width:250px; justify-content: center;" --}}
+                                <div style="display: flex; justify-content: center;">
+                                    <img src="images/nosearch.avif" style="max-width:500px;" alt="">
+                                </div>
+                            @endif
                             <!-- Company Block Four -->
                             @foreach ($companies as $company)
                                 <div class="company-block-four col-xl-4 col-lg-6 col-md-6 col-sm-12">
