@@ -8,12 +8,12 @@
     <section class="page-title style-two">
         <div class="auto-container">
             <!-- <div class="title-outer">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <h1>Find Jobs</h1>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <ul class="page-breadcrumb">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <li><a href="index.html">Home</a></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <li>Jobs</li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <h1>Find Jobs</h1>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <ul class="page-breadcrumb">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <li><a href="index.html">Home</a></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <li>Jobs</li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </div> -->
 
             <!-- Job Search Form -->
             <div class="job-search-form">
@@ -21,9 +21,9 @@
                     @csrf
                     <div class="row">
                         <!-- Form Group -->
-                        <div class="form-group col-lg-5 col-md-12 col-sm-12">
+                        <div class="form-group col-lg-10 col-md-12 col-sm-12">
                             <span class="icon flaticon-search-1"></span>
-                            <input type="text" name="searchTerm" placeholder="İş adı">
+                            <input type="text" name="searchTerm" placeholder="İş adı, açar sözlər">
                         </div>
 
                         <!-- Form Group -->
@@ -33,7 +33,7 @@
                         </div> --}}
 
                         <!-- Form Group -->
-                        <div class="form-group col-lg-5 col-md-12 col-sm-12 location">
+                        {{-- <div class="form-group col-lg-5 col-md-12 col-sm-12 location">
                             <span class="icon flaticon-briefcase"></span>
                             <select name="category" class="chosen-select">
                                 <option value="">Bütün kateqoriyalar</option>
@@ -41,7 +41,7 @@
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> --}}
 
                         <!-- Form Group -->
                         <div class="form-group col-lg-2 col-md-12 col-sm-12 text-right">
@@ -70,6 +70,20 @@
                                 @csrf
                                 <button type="button" class="theme-btn close-filters">X</button>
                                 <!-- Filter Block -->
+
+                                <div class="filter-block">
+                                    <h4>Kateqoriya</h4>
+                                    <div class="form-group">
+                                        <select class="chosen-select" name="category">
+                                            <option value="">Kateqoriya seç</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <span class="icon flaticon-briefcase"></span>
+                                    </div>
+                                </div>
+
                                 <div class="filter-block">
                                     <h4>Şirkət</h4>
                                     <div class="form-group">
@@ -78,12 +92,13 @@
                                             @foreach ($companies as $company)
                                                 <option value="{{ $company->id }}">{{ $company->company_name }}</option>
                                             @endforeach
-
-
                                         </select>
                                         <span class="icon flaticon-briefcase"></span>
                                     </div>
                                 </div>
+
+
+
                                 <div class="filter-block">
                                     <h4>Şəhər</h4>
                                     <div class="form-group">
