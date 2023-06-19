@@ -13,21 +13,7 @@ class VacancyController extends Controller
     public function index(Request $request)
     {
 
-        $searchTerm = $request->searchTerm;
         $category = $request->category;
-        // dd($category);
-        /*  $jobs = Job::with('category', 'company')
-            ->where(function ($query) use ($searchTerm, $category) {
-                $query->where('title', 'LIKE', "%$searchTerm%")
-                    ->orWhereHas('category', function ($query) use ($category) {
-                        $query->where('name', 'LIKE', "%$category%");
-                    })
-                    ->orWhereHas('company', function ($query) use ($searchTerm) {
-                        $query->where('company_name', 'LIKE', "%$searchTerm%");
-                    });
-            })
-            ->orderByDesc('created_at')
-            ->paginate(5); */
         $query = Job::query();
 
 
