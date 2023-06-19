@@ -268,51 +268,66 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <?php if(auth()->user()->role == 'company'){?>
-                                <li class="active"><a href="dashboard.html"> <i class="la la-home"></i> Dashboard</a>
+                                <li class="active"><a href="dashboard.html"> <i class="la la-home"></i> Idarə
+                                        paneli</a></li>
+                                <li><a href="dashboard-company-profile.html"><i class="la la-user-tie"></i> Şirkətin
+                                        Profili</a>
                                 </li>
-                                <li><a href="dashboard-company-profile.html"><i class="la la-user-tie"></i>Company
-                                        Profile</a></li>
-                                <li><a href="dashboard-post-job.html"><i class="la la-paper-plane"></i>Post a New
-                                        Job</a></li>
-                                <li><a href="dashboard-manage-job.html"><i class="la la-briefcase"></i> Manage Jobs
+                                <li><a href="dashboard-post-job.html"><i class="la la-paper-plane"></i> Vakansiya
+                                        əlavə et</a>
+                                </li>
+                                <li><a href="dashboard-manage-job.html"><i class="la la-briefcase"></i> Vakansiyaları
+                                        idarə et
                                     </a></li>
-                                <li><a href="dashboard-applicants.html"><i class="la la-file-invoice"></i> All
-                                        Applicants</a></li>
-                                <li><a href="dashboard-resumes.html"><i class="la la-bookmark-o"></i>Shortlisted
-                                        Resumes</a></li>
-                                <li><a href="dashboard-packages.html"><i class="la la-box"></i>Packages</a></li>
-                                <li><a href="dashboard-messages.html"><i class="la la-comment-o"></i>Messages</a></li>
-                                <li><a href="dashboard-resume-alerts.html"><i class="la la-bell"></i>Resume Alerts</a>
+                                <li><a href="dashboard-applicants.html"><i class="la la-file-invoice"></i> Müraciət
+                                        edənlər</a>
                                 </li>
-                                <li><a href="dashboard-change-password.html"><i class="la la-lock"></i>Change
-                                        Password</a></li>
-                                <li><a href="dashboard-company-profile.html"><i class="la la-user-alt"></i>View
-                                        Profile</a></li>
-                                <li><a href="{{ route('logout') }}"><i class="la la-sign-out"></i>Logout</a></li>
-                                <li><a href="{{ route('home') }}"><i class="la la-trash"></i>Delete Profile</a></li>
+                                <li><a href="dashboard-resumes.html"><i class="la la-bookmark-o"></i> Qısa siyahıya
+                                        alınmış
+                                        CV-lər</a></li>
+                                <li><a href="dashboard-packages.html"><i class="la la-box"></i> Paketlər</a></li>
+                                <li><a href="dashboard-messages.html"><i class="la la-comment-o"></i> Mesajlar</a>
+                                </li>
+                                <li><a href="dashboard-resume-alerts.html"><i class="la la-bell"></i> CV
+                                        xəbərdarlıqları</a></li>
+                                <li><a href="dashboard-change-password.html"><i class="la la-lock"></i> Şifrəni
+                                        dəyiş</a></li>
+                                <li><a href="dashboard-company-profile.html"><i class="la la-user-alt"></i> Profilə
+                                        bax</a></li>
+                                <li><a href="{{ route('logout') }}"><i class="la la-sign-out"></i> Çıxış</a></li>
+                                <li><a href="{{ route('home') }}"><i class="la la-trash"></i> Delete Profile</a></li>
                                 <?php } else{?>
                                 <li class="active"><a href="candidate-dashboard.html"> <i class="la la-home"></i>
-                                        Dashboard</a></li>
-                                <li><a href="candidate-dashboard-profile.html"><i class="la la-user-tie"></i>My
-                                        Profile</a></li>
-                                <li><a href="candidate-dashboard-resume.html"><i class="la la-file-invoice"></i>My
-                                        Resume</a></li>
-                                <li><a href="candidate-dashboard-applied-job.html"><i class="la la-briefcase"></i>
-                                        Applied Jobs </a></li>
-                                <li><a href="candidate-dashboard-job-alerts.html"><i class="la la-bell"></i>Job
-                                        Alerts</a></li>
-                                <li><a href="candidate-dashboard-shortlisted-resume.html"><i
-                                            class="la la-bookmark-o"></i>Shortlisted Jobs</a></li>
-                                <li><a href="candidate-dashboard-cv-manager.html"><i class="la la-file-invoice"></i>
-                                        CV manager</a></li>
-                                <li><a href="dashboard-packages.html"><i class="la la-box"></i>Packages</a></li>
-                                <li><a href="dashboard-messages.html"><i class="la la-comment-o"></i>Messages</a></li>
-                                <li><a href="dashboard-change-password.html"><i class="la la-lock"></i>Change
-                                        Password</a></li>
-                                <li><a href="dashboard-profile.html"><i class="la la-user-alt"></i>View Profile</a>
+                                        Idarə
+                                        paneli</a>
                                 </li>
-                                <li><a href="index.html"><i class="la la-sign-out"></i>Logout</a></li>
-                                <li><a href="dashboard-delete.html"><i class="la la-trash"></i>Delete Profile</a></li>
+                                <li><a href="candidate-dashboard-profile.html"><i class="la la-user-tie"></i> Mənim
+                                        Profilim</a>
+                                </li>
+                                <li><a href="candidate-dashboard-resume.html"><i class="la la-file-invoice"></i> Mənim
+                                        CV-im</a>
+                                </li>
+                                <li><a href="candidate-dashboard-applied-job.html"><i class="la la-briefcase"></i>
+                                        Təsdiq olunan
+                                        vakansiyalar
+                                    </a></li>
+                                <li><a href="candidate-dashboard-job-alerts.html"><i class="la la-bell"></i>Vakansiya
+                                        xəbərdarlıqları</a></li>
+                                <li><a href="candidate-dashboard-shortlisted-resume.html"><i
+                                            class="la la-bookmark-o"></i> Qısa
+                                        siyahıya alınmış İşlər</a></li>
+                                <li><a href="candidate-dashboard-cv-manager.html"><i class="la la-file-invoice"></i>
+                                        CV
+                                        menecer</a></li>
+                                <li><a href="dashboard-packages.html"><i class="la la-box"></i> Paketlər</a></li>
+                                <li><a href="dashboard-messages.html"><i class="la la-comment-o"></i> Mesajlar</a>
+                                </li>
+                                <li><a href="dashboard-change-password.html"><i class="la la-lock"></i>Şifrəni
+                                        dəyiş</a></li>
+                                <li><a href="dashboard-profile.html"><i class="la la-user-alt"></i> Profilə bax</a>
+                                </li>
+                                <li><a href="{{ route('logout') }}"><i class="la la-sign-out"></i> Çıxış</a></li>
+                                <li><a href="dashboard-delete.html"><i class="la la-trash"></i>Profili sil</a></li>
                                 <?php }?>
                             </ul>
                         </div>
@@ -358,38 +373,47 @@
             <div class="sidebar-inner">
                 <ul class="navigation">
                     <?php if(auth()->user()->role == 'company'){?>
-                    <li class="active"><a href="dashboard.html"> <i class="la la-home"></i> Dashboard</a></li>
-                    <li><a href="dashboard-company-profile.html"><i class="la la-user-tie"></i>Company Profile</a>
+                    <li class="active"><a href="dashboard.html"> <i class="la la-home"></i> Idarə paneli</a></li>
+                    <li><a href="dashboard-company-profile.html"><i class="la la-user-tie"></i> Şirkətin Profili</a>
                     </li>
-                    <li><a href="dashboard-post-job.html"><i class="la la-paper-plane"></i>Post a New Job</a></li>
-                    <li><a href="dashboard-manage-job.html"><i class="la la-briefcase"></i> Manage Jobs </a></li>
-                    <li><a href="dashboard-applicants.html"><i class="la la-file-invoice"></i> All Applicants</a></li>
-                    <li><a href="dashboard-resumes.html"><i class="la la-bookmark-o"></i>Shortlisted Resumes</a></li>
-                    <li><a href="dashboard-packages.html"><i class="la la-box"></i>Packages</a></li>
-                    <li><a href="dashboard-messages.html"><i class="la la-comment-o"></i>Messages</a></li>
-                    <li><a href="dashboard-resume-alerts.html"><i class="la la-bell"></i>Resume Alerts</a></li>
-                    <li><a href="dashboard-change-password.html"><i class="la la-lock"></i>Change Password</a></li>
-                    <li><a href="dashboard-company-profile.html"><i class="la la-user-alt"></i>View Profile</a></li>
-                    <li><a href="{{ route('logout') }}"><i class="la la-sign-out"></i>Logout</a></li>
-                    <li><a href="{{ route('home') }}"><i class="la la-trash"></i>Delete Profile</a></li>
-                    <?php } else{?>
-                    <li class="active"><a href="candidate-dashboard.html"> <i class="la la-home"></i> Dashboard</a>
+                    <li><a href="dashboard-post-job.html"><i class="la la-paper-plane"></i> Vakansiya əlavə et</a>
                     </li>
-                    <li><a href="candidate-dashboard-profile.html"><i class="la la-user-tie"></i>My Profile</a></li>
-                    <li><a href="candidate-dashboard-resume.html"><i class="la la-file-invoice"></i>My Resume</a></li>
-                    <li><a href="candidate-dashboard-applied-job.html"><i class="la la-briefcase"></i> Applied Jobs
+                    <li><a href="dashboard-manage-job.html"><i class="la la-briefcase"></i> Vakansiyaları idarə et
                         </a></li>
-                    <li><a href="candidate-dashboard-job-alerts.html"><i class="la la-bell"></i>Job Alerts</a></li>
-                    <li><a href="candidate-dashboard-shortlisted-resume.html"><i
-                                class="la la-bookmark-o"></i>Shortlisted Jobs</a></li>
+                    <li><a href="dashboard-applicants.html"><i class="la la-file-invoice"></i> Müraciət edənlər</a>
+                    </li>
+                    <li><a href="dashboard-resumes.html"><i class="la la-bookmark-o"></i> Qısa siyahıya alınmış
+                            CV-lər</a></li>
+                    <li><a href="dashboard-packages.html"><i class="la la-box"></i> Paketlər</a></li>
+                    <li><a href="dashboard-messages.html"><i class="la la-comment-o"></i> Mesajlar</a></li>
+                    <li><a href="dashboard-resume-alerts.html"><i class="la la-bell"></i> CV xəbərdarlıqları</a></li>
+                    <li><a href="dashboard-change-password.html"><i class="la la-lock"></i> Şifrəni dəyiş</a></li>
+                    <li><a href="dashboard-company-profile.html"><i class="la la-user-alt"></i> Profilə bax</a></li>
+                    <li><a href="{{ route('logout') }}"><i class="la la-sign-out"></i> Çıxış</a></li>
+                    <li><a href="{{ route('home') }}"><i class="la la-trash"></i> Delete Profile</a></li>
+                    <?php } else{?>
+                    <li class="active"><a href="candidate-dashboard.html"> <i class="la la-home"></i> Idarə
+                            paneli</a>
+                    </li>
+                    <li><a href="candidate-dashboard-profile.html"><i class="la la-user-tie"></i> Mənim Profilim</a>
+                    </li>
+                    <li><a href="candidate-dashboard-resume.html"><i class="la la-file-invoice"></i> Mənim CV-im</a>
+                    </li>
+                    <li><a href="candidate-dashboard-applied-job.html"><i class="la la-briefcase"></i> Təsdiq olunan
+                            vakansiyalar
+                        </a></li>
+                    <li><a href="candidate-dashboard-job-alerts.html"><i class="la la-bell"></i>Vakansiya
+                            xəbərdarlıqları</a></li>
+                    <li><a href="candidate-dashboard-shortlisted-resume.html"><i class="la la-bookmark-o"></i> Qısa
+                            siyahıya alınmış İşlər</a></li>
                     <li><a href="candidate-dashboard-cv-manager.html"><i class="la la-file-invoice"></i> CV
-                            manager</a></li>
-                    <li><a href="dashboard-packages.html"><i class="la la-box"></i>Packages</a></li>
-                    <li><a href="dashboard-messages.html"><i class="la la-comment-o"></i>Messages</a></li>
-                    <li><a href="dashboard-change-password.html"><i class="la la-lock"></i>Change Password</a></li>
-                    <li><a href="dashboard-profile.html"><i class="la la-user-alt"></i>View Profile</a></li>
-                    <li><a href="index.html"><i class="la la-sign-out"></i>Logout</a></li>
-                    <li><a href="dashboard-delete.html"><i class="la la-trash"></i>Delete Profile</a></li>
+                            menecer</a></li>
+                    <li><a href="dashboard-packages.html"><i class="la la-box"></i> Paketlər</a></li>
+                    <li><a href="dashboard-messages.html"><i class="la la-comment-o"></i> Mesajlar</a></li>
+                    <li><a href="dashboard-change-password.html"><i class="la la-lock"></i>Şifrəni dəyiş</a></li>
+                    <li><a href="dashboard-profile.html"><i class="la la-user-alt"></i> Profilə bax</a></li>
+                    <li><a href="index.html"><i class="la la-sign-out"></i> Çıxış</a></li>
+                    <li><a href="dashboard-delete.html"><i class="la la-trash"></i>Profili sil</a></li>
                     <?php } ?>
                 </ul>
             </div>
