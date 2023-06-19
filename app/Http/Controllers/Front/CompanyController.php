@@ -19,7 +19,7 @@ class CompanyController extends Controller
 
             $companies = $query->orderByDesc('created_at')->paginate(9);
         } else {
-            $companies = Company::paginate(9);
+            $companies = Company::orderByDesc('created_at')->paginate(9);
         }
 
         $company_count = count(Company::all());
