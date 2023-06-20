@@ -34,11 +34,11 @@ Route::group(['middleware' => 'NotLogin'], function () {
 
 // If user don't login
 Route::group(['middleware' => 'IsLogin'], function () {
-    Route::get('login', [LoginController::class, 'show'])->name('login');
+    Route::view('login', 'view.login')->name('login');
     Route::post('login', [LoginController::class, 'login'])->name('login.submit');
-    Route::get('register-candidate', [RegisterController::class, 'show'])->name('register-candidate');
+    Route::view('register-candidate', 'view.register-candidate')->name('register-candidate');
     Route::post('register-candidate', [RegisterController::class, 'register_candidate'])->name('candidate-register');
-    Route::get('register-company', [RegisterController::class, 'showcompany'])->name('register-company');
+    Route::view('register-company', 'view.register-company')->name('register-company');
     Route::post('register-company', [RegisterController::class, 'register_company'])->name('company-register');
 });
 
