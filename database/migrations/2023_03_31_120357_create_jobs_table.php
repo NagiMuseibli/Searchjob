@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('salary');
             $table->string('location');
             $table->string('deadline');
+            $table->boolean('status');
+            $table->integer('count');
             $table->timestamps();
         });
     }

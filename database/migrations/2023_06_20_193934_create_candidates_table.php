@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('jobs', function (Blueprint $table) {
-            $table->integer('count');
+        Schema::create('candidates', function (Blueprint $table) {
+            $table->id();
+            $table->integer('user_id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('image');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('jobs', function (Blueprint $table) {
-            $table->dropColumn('count');
-        });
+        Schema::dropIfExists('candidates');
     }
 };

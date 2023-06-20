@@ -19,9 +19,10 @@ return new class extends Migration
             $table->string('company_name');
             $table->string('email');
             $table->string('phone');
-            $table->string('about_company');
+            $table->text('about_company');
             $table->string('cv_email');
             $table->string('image');
+            $table->string('location');
             $table->timestamps();
         });
     }
