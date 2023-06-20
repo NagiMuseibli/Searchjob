@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('about_company');
             $table->string('cv_email');
             $table->string('image');
-            $table->string('location');
+            $table->string('location')->nullable();
             $table->timestamps();
         });
     }

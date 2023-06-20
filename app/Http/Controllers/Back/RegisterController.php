@@ -31,19 +31,16 @@ class RegisterController extends Controller
         //dd($request);
         if ($validated) {
             //dd($request);
-            $id = DB::table('users')->insertGetId(
-                [
-                    'name' =>  $request->name,
-                    'email' => $request->email,
-                    'is_moderator' => 0,
-                    'password' => Hash::make($request->password),
-                    'role' => 'candidate'
 
-                ]
-            );
+            $user = User::create([
+                'name' =>  $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => 'candidate'
+            ]);
 
-            $candidate = new candidate();
-            $candidate->user_id = $id;
+            $candidate = new candidate();  //Model name must be PascalCase.. Sorry syntax wrong
+            $candidate->user_id = $user->id;
             $candidate->name = $request->name;
             $candidate->email = $request->email;
             $candidate->image = 'nopic-candidate.jpg';
@@ -64,25 +61,23 @@ class RegisterController extends Controller
         if ($validated) {
             //dd($request);
             // Create a new user and save it to the database
-            $id = DB::table('users')->insertGetId(
-                [
-                    'name' =>  $request->company_name,
-                    'email' => $request->email,
-                    'is_moderator' => 0,
-                    'password' => Hash::make($request->password),
-                    'role' => 'company'
+            $user = User::create([
+                'name' =>  $request->company_name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => 'company'
 
-                ]
-            );
+            ]);
 
             $company = new Company();
             $company->company_name = $request->company_name;
-            $company->user_id = $id;
+            $company->user_id = $user->id;
             $company->email = $request->email;
             $company->phone = $request->company_tel;
             $company->about_company = $request->about_company;
             $company->cv_email = $request->company_cv_email;
             $company->image = 'nopic-company.jpg';
+            $company->location = null;
             $company->save();
 
             // Log the user in and redirect to the login page
