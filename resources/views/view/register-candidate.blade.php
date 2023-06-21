@@ -110,11 +110,25 @@
                             <div class="form-group">
                                 <label>AD</label>
                                 <input type="text" name="name" placeholder="Adınız?" required>
+                                @if ($errors->any())
+                                    <div style="color:red;">
+                                        @error('name')
+                                            <div>{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="form-group">
                                 <label>EMAİL</label>
                                 <input type="email" name="email" placeholder="E-Mail" required>
+                                @if ($errors->any())
+                                    <div style="color:red;">
+                                        @error('email')
+                                            <div>{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="form-group">
@@ -127,13 +141,20 @@
                                 <label>PAROLU TƏKRAR EDİN</label>
                                 <input id="password_confirmation" type="password" name="password_confirmation"
                                     value="" placeholder="Parolu təkrar daxil edin">
+                                @if ($errors->any())
+                                    <div style="color:red;">
+                                        @error('password')
+                                            <div>{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="form-group">
                                 <button class="theme-btn btn-style-one " type="submit"
                                     name="Register">Qeydiyyat</button>
                             </div>
-                            @if ($errors->any())
+                            {{-- @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)
@@ -141,7 +162,7 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                            @endif
+                            @endif --}}
                         </form>
 
                         <div class="bottom-box">

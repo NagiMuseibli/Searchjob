@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,12 +11,9 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $this->validate($request, [
-            'password' => 'required',
-            'email' => 'email|required',
-        ]);
+
         $company = Company::where('email', '=', $request->email)->count();
         // dd($company);
         if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {

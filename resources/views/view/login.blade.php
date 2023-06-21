@@ -81,12 +81,27 @@
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="text" name="email" placeholder="E-Mail" required>
+                                @if ($errors->any())
+                                    <div style="color:red;">
+                                        @error('email')
+                                            <div>{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
+
                             </div>
 
                             <div class="form-group">
                                 <label>Parol</label>
                                 <input id="password-field" type="password" name="password" value=""
                                     placeholder="Parol">
+                                @if ($errors->any())
+                                    <div style="color:red;">
+                                        @error('password')
+                                            <div>{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="form-group">

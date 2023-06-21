@@ -25,7 +25,7 @@ class RegisterCondRequest extends FormRequest
     {
 
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:30|min:3',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|min:8|confirmed',
         ];
@@ -35,9 +35,10 @@ class RegisterCondRequest extends FormRequest
     {
         return [
             'name.required' => 'Ad daxil etmədiniz.',
+            'name.min' => 'Ad minimum 3 simvol təşkil etməlidir.',
             'email.required' => 'Email daxil etmədiniz.',
             'email.email' => 'Email adres daxil etməlisiniz.',
-            'email.unique' => 'Bu Email artıq istifadə olunur',
+            'email.unique' => 'Bu E-mail artıq istifadə olunur',
             'password.required' => 'Parol daxil etmədiniz.',
             'password.min' => 'Parol minimum 8 simvol olmalıdır.',
             'password.confirmed' => 'Parol doğrulaması yalnışdır.',

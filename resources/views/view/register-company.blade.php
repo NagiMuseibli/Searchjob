@@ -109,27 +109,62 @@
                             <div class="form-group">
                                 <label>ŞİRKƏTİN ADI</label>
                                 <input type="text" name="company_name" placeholder="Şirkət adı?" required>
+                                @if ($errors->any())
+                                    <div style="color: red;">
+                                        @error('company_name')
+                                            <div>{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="form-group">
                                 <label>EMAİL</label>
                                 <input type="email" name="email" placeholder="E-Mail qeyd edin" required>
+                                @if ($errors->any())
+                                    <div style="color:red;">
+                                        @error('email')
+                                            <div>{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="form-group">
                                 <label>TELEFON</label>
                                 <input type="text" name="company_tel" placeholder="Telefonunuzu daxil edin" required>
+                                @if ($errors->any())
+                                    <div style="color: red;">
+                                        @error('company_tel')
+                                            <div>{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="form-group">
                                 <label>CV GÖNDƏRİLƏCƏK E-MAİL ÜNVANI</label>
                                 <input type="email" name="company_cv_email" placeholder="E-Mail qeyd edin" required>
+                                @if ($errors->any())
+                                    <div style="color: red;">
+                                        @error('company_cv_email')
+                                            <div>{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="form-group">
                                 <label>ŞİRKƏT HAQQINDA İNFORMASİYA DAXİL EDİN</label>
                                 <textarea name="about_company" id="" cols="30" rows="10"
                                     placeholder="Şirkətiniz haqqında qısa informasiya daxil edin"></textarea>
+                                @if ($errors->any())
+                                    <div style="color: red;">
+                                        @error('about_company')
+                                            <div>{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
                             </div>
 
 
@@ -143,21 +178,19 @@
                                 <label>PAROLU TƏKRAR EDİN</label>
                                 <input id="password_confirmation" type="password" name="password_confirmation"
                                     value="" placeholder="Parolu təkrar daxil edin">
+                                @if ($errors->any())
+                                    <div style="color: red;">
+                                        @error('password')
+                                            <div>{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="form-group">
                                 <button class="theme-btn btn-style-one " type="submit"
                                     name="Register">Qeydiyyat</button>
                             </div>
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
                         </form>
 
                         <div class="bottom-box">
