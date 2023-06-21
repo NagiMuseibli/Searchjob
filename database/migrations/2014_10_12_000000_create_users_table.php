@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             // $table->integer('is_moderator');
-            $table->enum('role', ['candidate', 'company']);
+            $table->string('role');
             $table->rememberToken();
             $table->timestamps();
         });

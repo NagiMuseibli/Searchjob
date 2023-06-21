@@ -19,8 +19,8 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('work_hour');
             $table->string('title');
-            $table->string('description');
-            $table->string('requirements');
+            $table->text('description');
+            $table->text('requirements');
             $table->string('salary');
             $table->string('location');
             $table->string('deadline');
