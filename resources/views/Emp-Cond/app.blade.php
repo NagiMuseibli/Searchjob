@@ -9,12 +9,12 @@
     <title>Superio | Just another HTML Template | Dashboard</title>
 
     <!-- Stylesheets -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
 
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
 
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,8 +41,8 @@
                     <!--Nav Outer -->
                     <div class="nav-outer">
                         <div class="logo-box">
-                            <div class="logo"><a href="{{ route('home') }}"><img src="images/logo.svg" alt=""
-                                        title=""></a></div>
+                            <div class="logo"><a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}"
+                                        alt="" title=""></a></div>
                         </div>
 
                         <nav class="nav main-menu">
@@ -271,7 +271,7 @@
                                     }
                                     
                                 @endphp
-                                <img src="{{ $img }}" alt="avatar" class="thumb">
+                                <img src="{{ asset($img) }}" alt="avatar" class="thumb">
                                 <span class="name">{{ $user->name }}</span>
                                 <span class="name">{{ $user->email }}</span>
                             </a>
@@ -346,8 +346,8 @@
 
             <!-- Mobile Header -->
             <div class="mobile-header">
-                <div class="logo"><a href="{{ route('home') }}"><img src="images/logo.svg" alt=""
-                            title=""></a></div>
+                <div class="logo"><a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}"
+                            alt="" title=""></a></div>
 
                 <!--Nav Box-->
                 <div class="nav-outer clearfix">
@@ -358,8 +358,8 @@
                             <a href="login-popup.html" class="call-modal"><span class="icon-user"></span></a>
                         </div>
 
-                        <button id="toggle-user-sidebar"><img src="images/resource/company-6.png" alt="avatar"
-                                class="thumb"></button>
+                        <button id="toggle-user-sidebar"><img src="{{ asset('images/resource/company-6.pn') }}g"
+                                alt="avatar" class="thumb"></button>
                         <a href="#nav-mobile" class="mobile-nav-toggler navbar-trigger"><span
                                 class="flaticon-menu-1"></span></a>
                     </div>
@@ -371,8 +371,9 @@
             <div id="nav-mobile"></div>
         </header>
         <!--End Main Header -->
-        @yield('user.company')
-        @yield('user.candidate')
+        @yield('admin.company')
+        @yield('admin.candidate')
+        @yield('view.admin.post-job')
         <!-- Sidebar Backdrop -->
         <div class="sidebar-backdrop"></div>
 
@@ -764,24 +765,24 @@
     </div><!-- End Page Wrapper -->
 
 
-    <script src="js/jquery.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/chosen.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.fancybox.js"></script>
-    <script src="js/jquery.modal.min.js"></script>
-    <script src="js/mmenu.polyfills.js"></script>
-    <script src="js/mmenu.js"></script>
-    <script src="js/appear.js"></script>
-    <script src="js/ScrollMagic.min.js"></script>
-    <script src="js/rellax.min.js"></script>
-    <script src="js/owl.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/script.js"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/chosen.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.fancybox.js') }}"></script>
+    <script src="{{ asset('js/jquery.modal.min.js') }}"></script>
+    <script src="{{ asset('js/mmenu.polyfills.js') }}"></script>
+    <script src="{{ asset('js/mmenu.js') }}"></script>
+    <script src="{{ asset('js/appear.js') }}"></script>
+    <script src="{{ asset('js/ScrollMagic.min.js') }}"></script>
+    <script src="{{ asset('js/rellax.min.js') }}"></script>
+    <script src="{{ asset('js/owl.js') }}"></script>
+    <script src="{{ asset('js/wow.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 
     <!-- Chart.js // documentation: http://www.chartjs.org/docs/latest/ -->
-    <script src="js/chart.min.js"></script>
+    <script src="{{ asset('js/chart.min.js') }}"></script>
     <script>
         Chart.defaults.global.defaultFontFamily = "Sofia Pro";
         Chart.defaults.global.defaultFontColor = '#888';

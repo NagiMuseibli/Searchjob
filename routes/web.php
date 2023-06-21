@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Back\AdminCandidateController;
 use App\Http\Controllers\Back\AdminCompanyController;
+use App\Http\Controllers\Back\CompanyPostJobController;
 use App\Http\Controllers\Back\LoginController;
 use App\Http\Controllers\Back\RegisterController;
 use App\Http\Controllers\Front\CompanyController;
@@ -27,27 +28,37 @@ use Illuminate\Support\Facades\Route;
 
 // If user login
 Route::group(['middleware' => 'NotLogin'], function () {
-    Route::get('/candidate', [AdminCandidateController::class, 'index'])->name('candidate');
-    Route::get('/company', [AdminCompanyController::class, 'index'])->name('company');
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+    // Admin Candidate
+    Route::prefix('candidate')->group(function () {
+        Route::get('/',             [AdminCandidateController::class, 'index'])->name('candidate');
+    });
+
+    // Admin Company
+    Route::prefix('company')->group(function () {
+        Route::get('/',              [AdminCompanyController::class, 'index'])->name('company');
+        Route::get('/post-job', [CompanyPostJobController::class, 'index'])->name('post_job_view');
+    });
+
+    Route::get('/logout',             [LoginController::class, 'logout'])->name('logout');
 });
 
 // If user don't login
 Route::group(['middleware' => 'IsLogin'], function () {
     Route::view('login', 'view.login')->name('login');
-    Route::post('login', [LoginController::class, 'login'])->name('login.submit');
     Route::view('register-candidate', 'view.register-candidate')->name('register-candidate');
-    Route::post('register-candidate', [RegisterController::class, 'register_candidate'])->name('candidate-register');
     Route::view('register-company', 'view.register-company')->name('register-company');
-    Route::post('register-company', [RegisterController::class, 'register_company'])->name('company-register');
+    Route::post('login',              [LoginController::class, 'login'])->name('login.submit');
+    Route::post('register-candidate', [RegisterController::class, 'register_candidate'])->name('candidate-register');
+    Route::post('register-company',   [RegisterController::class, 'register_company'])->name('company-register');
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/vacancies', [VacancyController::class, 'index'])->name('vacancies');
-Route::post('/vacancies', [VacancyController::class, 'search'])->name('search_vacancy');
-Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
-Route::get('/company{id}', [CompanyController::class, 'show'])->name('single_company');
-Route::get('/resume{id}', [ResumeController::class, 'show'])->name('single_resume');
-Route::get('/resumes', [ResumeController::class, 'index'])->name('resumes');
+Route::get('/',                       [HomeController::class, 'index'])->name('home');
+Route::get('/vacancies',              [VacancyController::class, 'index'])->name('vacancies');
+Route::post('/vacancies',             [VacancyController::class, 'search'])->name('search_vacancy');
+Route::get('/companies',              [CompanyController::class, 'index'])->name('companies');
+Route::get('/company{id}',            [CompanyController::class, 'show'])->name('single_company');
+Route::get('/resume{id}',             [ResumeController::class, 'show'])->name('single_resume');
+Route::get('/resumes',                [ResumeController::class, 'index'])->name('resumes');
 //Route::get('/company', [CompanyController::class, 'index'])->name('company');
-Route::get('/vacancy{id}', [HomeController::class, 'show_vacancy'])->name('vacancy_show');
+Route::get('/vacancy{id}',            [HomeController::class, 'show_vacancy'])->name('vacancy_show');

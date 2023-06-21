@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\User;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,8 +28,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // Query showing for on navbar
-        $user = User::where('id', auth()->id())->with('candidate', 'company')->get();
-        View::share('user', $user);
+        // $user = User::with('company')->find(Auth::id());
+        /* $user = User::where('id', auth()->id())->with('candidate', 'company')->first();
+        dd($user);
+        View::share('user', $user); */
 
         Paginator::useBootstrap();
     }

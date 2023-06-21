@@ -9,6 +9,8 @@ class Company extends Model
 {
     use HasFactory;
     protected $table = 'companies';
+    protected $company;
+
     public function user()
     {
         return $this->belongsTo(User::class);

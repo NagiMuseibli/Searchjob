@@ -7,12 +7,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminCandidateController extends Controller
+class CompanyPostJobController extends Controller
 {
     public function index()
     {
-        $user = User::find(Auth::id());
-        // dd($user);
-        return view('view.admin.candidate', compact('user'));
+        $user = User::find(Auth::id())->first();
+        return view('view.admin.post-job', compact('user'));
     }
 }

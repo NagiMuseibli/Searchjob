@@ -1,5 +1,5 @@
 @extends('Emp-Cond.app')
 
-@section('user.company')
+@section('admin.company')
     Company
 @endsection
