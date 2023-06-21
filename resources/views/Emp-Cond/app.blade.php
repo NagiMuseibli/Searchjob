@@ -262,7 +262,16 @@
                         <!-- Dashboard Option -->
                         <div class="dropdown dashboard-option">
                             <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/resource/company-6.png" alt="avatar" class="thumb">
+                                @php
+                                    if (auth()->user()->role == 'company') {
+                                        $img = 'images/companies/' . $user->company->image;
+                                    }
+                                    if (auth()->user()->role == 'candidate') {
+                                        $img = 'images/candidate/' . $user->candidate->image;
+                                    }
+                                    
+                                @endphp
+                                <img src="{{ $img }}" alt="avatar" class="thumb">
                                 <span class="name">{{ $user->name }}</span>
                                 <span class="name">{{ $user->email }}</span>
                             </a>

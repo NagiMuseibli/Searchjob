@@ -41,7 +41,7 @@ class RegisterController extends Controller
         $candidate->user_id = $user->id;
         $candidate->name = $request->name;
         $candidate->email = $request->email;
-        $candidate->image = 'nopic-candidate.jpg';
+        $candidate->image = 'nopic-candidate.png';
         $candidate->save();
         // Log the user in and redirect to the home page
         //Auth::login($user);
