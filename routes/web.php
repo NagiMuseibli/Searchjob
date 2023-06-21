@@ -37,7 +37,7 @@ Route::group(['middleware' => 'NotLogin'], function () {
     // Admin Company
     Route::prefix('company')->group(function () {
         Route::get('/',              [AdminCompanyController::class, 'index'])->name('company');
-        Route::get('/post-job', [CompanyPostJobController::class, 'index'])->name('post_job_view');
+        Route::get('/post-job',      [CompanyPostJobController::class, 'index'])->name('post_job_view');
     });
 
     Route::get('/logout',             [LoginController::class, 'logout'])->name('logout');
