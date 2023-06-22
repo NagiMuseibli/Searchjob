@@ -264,16 +264,16 @@
                             <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
                                 @php
                                     if (auth()->user()->role == 'company') {
-                                        $img = 'images/companies/' . $user->company->image;
+                                        $img = 'images/companies/' . $profile_image;
                                     }
                                     if (auth()->user()->role == 'candidate') {
-                                        $img = 'images/candidate/' . $user->candidate->image;
+                                        $img = 'images/candidate/' . $profile_image;
                                     }
                                     
                                 @endphp
                                 <img src="{{ asset($img) }}" alt="avatar" class="thumb">
-                                <span class="name">{{ $user->name }}</span>
-                                <span class="name">{{ $user->email }}</span>
+                                <span class="name">{{ $profile_name }}</span>
+                                <span class="name">{{ $profile_email }}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <?php if(auth()->user()->role == 'company'){?>

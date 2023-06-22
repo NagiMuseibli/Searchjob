@@ -11,8 +11,8 @@ class AdminCandidateController extends Controller
 {
     public function index()
     {
-        $user = User::find(Auth::id());
+        // $user = User::find(Auth::id());
         // dd($user);
-        return view('view.admin.candidate', compact('user'));
+        return view('view.admin.candidate');
     }
 }

@@ -12,8 +12,8 @@ class AdminCompanyController extends Controller
     public function index()
     {
         // $user = User::where('id', auth()->id())->with('company')->first();
-        $user = User::find(Auth::id());
+        // $user = User::find(Auth::id());
         // dd($user);
-        return view('view.admin.company', compact('user'));
+        return view('view.admin.company');
     }
 }
