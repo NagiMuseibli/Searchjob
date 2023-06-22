@@ -86,7 +86,16 @@
                                         <li>Founded in: <span>2011</span></li> --}}
                                         <li>Telefon: <span>{{ $company->phone }}</span></li>
                                         <li>Email: <span>{{ $company->cv_email }}</span></li>
-                                        <li>Məkan: <span>{{ $company->location }}</span></li>
+                                        <li>Məkan: <span>
+                                                @php
+                                                    if ($company->location == null) {
+                                                        $location = 'Təyin edilməyib';
+                                                    } else {
+                                                        $location = $company->location;
+                                                    }
+                                                @endphp
+                                                {{ $location }}
+                                            </span></li>
                                         <li>Sosial media:
                                             <div class="social-links">
                                                 <a href="#"><i class="fab fa-facebook-f"></i></a>

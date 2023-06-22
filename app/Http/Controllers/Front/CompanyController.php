@@ -38,7 +38,10 @@ class CompanyController extends Controller
     public function show($id)
     {
         $company = Company::find($id);
-        $jobs = Job::where('company_id', '=', $id)->orderByDesc('created_at')->get();
+        $jobs = Job::where('company_id', $id)
+            ->where('status', 1)
+            ->orderByDesc('created_at')
+            ->get();
         //dd($jobs);
         return view('view.company-single', [
             'company' => $company,

@@ -9,7 +9,20 @@ use Illuminate\Support\Facades\DB;
 class job extends Model
 {
     use HasFactory;
-    protected $fillable = ["category_id", "company_id", "work_hour", "title", "description", "requirements", "salary", "location", "deadline"];
+    protected $fillable = [
+        "category_id",
+        "company_id",
+        "work_hour",
+        "title",
+        "description",
+        "requirements",
+        "salary",
+        "location",
+        "deadline",
+        "status",
+        "count",
+        "exp_year",
+    ];
 
     public function category()
     {
@@ -27,7 +40,8 @@ class job extends Model
             SELECT COUNT(*) AS count
             FROM jobs
             LEFT JOIN companies ON companies.id = jobs.company_id
-            WHERE jobs.company_id = companies.id
+            WHERE jobs.company_id = companies.id 
+            
         ");
 
         // $results = DB::select($query);

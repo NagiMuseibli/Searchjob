@@ -52,14 +52,14 @@
                                         {{ $jobs->requirements }}
                                     </li>
                                 </ul>
-                                <h4>Bacarıq və təcrübə</h4>
+                                {{-- <h4>Bacarıq və təcrübə</h4>
                                 <ul class="list-style-three">
                                     <li>You have at least 3 years’ experience working as a Product Designer.</li>
                                     <li>You have experience using Sketch and InVision or Framer X</li>
                                     <li>You have some previous experience working in an agile environment – Think two-week
                                         sprints.</li>
                                     <li>You are familiar using Jira and Confluence in your workflow</li>
-                                </ul>
+                                </ul> --}}
                                 <h5>Müraciət etmək üçün: {{ $company->company->cv_email }}</h5>
                             </div>
                         </div>

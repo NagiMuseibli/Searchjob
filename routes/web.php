@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Back\AdminCandidateController;
 use App\Http\Controllers\Back\AdminCompanyController;
-use App\Http\Controllers\Back\CompanyPostJobController;
+use App\Http\Controllers\Back\AdminCompanyPostController;
 use App\Http\Controllers\Back\LoginController;
 use App\Http\Controllers\Back\RegisterController;
 use App\Http\Controllers\Front\CompanyController;
@@ -37,7 +37,8 @@ Route::group(['middleware' => 'NotLogin'], function () {
     // Admin Company
     Route::prefix('company')->group(function () {
         Route::get('/',              [AdminCompanyController::class, 'index'])->name('company');
-        Route::get('/post-job',      [CompanyPostJobController::class, 'index'])->name('post_job_view');
+        Route::get('/post-job',      [AdminCompanyPostController::class, 'index'])->name('post_job_view');
+        Route::post('/post-job',      [AdminCompanyPostController::class, 'create'])->name('create_job');
     });
 
     Route::get('/logout',             [LoginController::class, 'logout'])->name('logout');

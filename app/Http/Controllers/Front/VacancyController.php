@@ -54,10 +54,10 @@ class VacancyController extends Controller
             // Search by salary soon...
 
 
-            $jobs = $query->orderByDesc('created_at')->paginate(5);
+            $jobs = $query->where('status', 1)->orderByDesc('created_at')->paginate(5);
             // dd($jobs);
         } else {
-            $jobs = Job::with('category', 'company')->orderByDesc('created_at')->paginate(5);
+            $jobs = Job::where('status', 1)->with('category', 'company')->orderByDesc('created_at')->paginate(5);
         }
 
         $job_count = count(Job::all());

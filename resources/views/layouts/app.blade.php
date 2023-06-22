@@ -9,12 +9,12 @@
     <title>@yield('title')</title>
 
     <!-- Stylesheets -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
 
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
 
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,8 +36,8 @@
                 <!--Nav Outer -->
                 <div class="nav-outer">
                     <div class="logo-box">
-                        <div class="logo"><a href="{{ route('home') }}"><img src="images/logo.svg" alt=""
-                                    title=""></a></div>
+                        <div class="logo"><a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}"
+                                    alt="" title=""></a></div>
                     </div>
 
                     <nav class="nav main-menu">
@@ -124,7 +124,7 @@
                     <div class="outer-box">
                         <!-- Login/Register -->
                         <div class="login-box">
-                            <a href="login-popup.html" class="call-modal"><span class="icon-user"></span></a>
+                            <a href="{{ route('login') }}" class="call-modal"><span class="icon-user"></span></a>
                         </div>
 
                         <a href="#nav-mobile" class="mobile-nav-toggler"><span class="flaticon-menu-1"></span></a>
@@ -257,22 +257,22 @@
     <!-- End Page Wrapper -->
 
 
-    <script src="js/jquery.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/chosen.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.fancybox.js"></script>
-    <script src="js/jquery.modal.min.js"></script>
-    <script src="js/mmenu.polyfills.js"></script>
-    <script src="js/mmenu.js"></script>
-    <script src="js/appear.js"></script>
-    <script src="js/anm.min.js"></script>
-    <script src="js/ScrollMagic.min.js"></script>
-    <script src="js/rellax.min.js"></script>
-    <script src="js/owl.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/script.js"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('js/chosen.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.fancybox.js') }}"></script>
+    <script src="{{ asset('js/jquery.modal.min.js') }}"></script>
+    <script src="{{ asset('js/mmenu.polyfills.js') }}"></script>
+    <script src="{{ asset('js/mmenu.js') }}"></script>
+    <script src="{{ asset('js/appear.js') }}"></script>
+    <script src="{{ asset('js/anm.min.js') }}"></script>
+    <script src="{{ asset('js/ScrollMagic.min.js') }}"></script>
+    <script src="{{ asset('js/rellax.min.js') }}"></script>
+    <script src="{{ asset('js/owl.js') }}"></script>
+    <script src="{{ asset('js/wow.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 
 </body>
 
