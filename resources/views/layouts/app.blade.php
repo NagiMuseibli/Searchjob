@@ -66,7 +66,13 @@
 
                             <!-- Only for Mobile View -->
                             <li class="mm-add-listing">
-                                <a href="{{ route('company') }}" class="theme-btn btn-style-one">Job Post</a>
+
+
+                                <?php if(!auth()->user()){?>
+                                <a href="{{ route('login') }}" class="theme-btn btn-style-one">Daxil ol</a>
+                                <?php } else{?>
+                                <a href="{{ route('company') }}" class="theme-btn btn-style-one">Profilə get</a>
+                                <?php } ?>
                                 <span>
                                     <span class="contact-info">
                                         <span class="phone-num"><span>Call us</span><a href="tel:1234567890">123 456
@@ -102,7 +108,15 @@
                 <?php } else{?>
                 <div class="outer-box">
                     <!-- Add Listing -->
-                    <a href="{{ route('company') }}" class="upload-cv">Profilə get</a>
+                    @php
+                        if (auth()->user()->role == 'company') {
+                            $go_profile = 'company';
+                        }
+                        if (auth()->user()->role == 'candidate') {
+                            $go_profile = 'candidate';
+                        }
+                    @endphp
+                    <a href="{{ route($go_profile) }}">Profilə get</a>
                     <!-- Login/Register -->
                     {{-- <div class="btn-box">
                         <a href="{{ route('login') }}" class="theme-btn btn-style-three ">Giriş /
@@ -123,9 +137,9 @@
 
                     <div class="outer-box">
                         <!-- Login/Register -->
-                        <div class="login-box">
+                        {{-- <div class="login-box">
                             <a href="{{ route('login') }}" class="call-modal"><span class="icon-user"></span></a>
-                        </div>
+                        </div> --}}
 
                         <a href="#nav-mobile" class="mobile-nav-toggler"><span class="flaticon-menu-1"></span></a>
                     </div>

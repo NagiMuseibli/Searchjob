@@ -71,7 +71,7 @@
 
                                 <!-- Only for Mobile View -->
                                 <li class="mm-add-listing">
-                                    <a href="add-listing.html" class="theme-btn btn-style-one">Job Post</a>
+                                    <a href="{{ route('logout') }}" class="theme-btn btn-style-one">Hesabdan çıxış</a>
                                     <span>
                                         <span class="contact-info">
                                             <span class="phone-num"><span>Call us</span><a href="tel:1234567890">123
@@ -200,9 +200,9 @@
 
                     <div class="outer-box">
                         <!-- Login/Register -->
-                        <div class="login-box">
+                        {{-- <div class="login-box">
                             <a href="login-popup.html" class="call-modal"><span class="icon-user"></span></a>
-                        </div>
+                        </div> --}}
                         @php
                             if (auth()->user()->role == 'company') {
                                 $img = 'images/companies/' . $profile_image;
