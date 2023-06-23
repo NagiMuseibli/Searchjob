@@ -30,16 +30,22 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'NotLogin'], function () {
 
     // Admin Candidate
-    Route::prefix('candidate')->group(function () {
-        Route::get('/',             [AdminCandidateController::class, 'index'])->name('candidate');
+    Route::group(['middleware' => 'role:candidate'], function () {
+        Route::prefix('candidate')->group(function () {
+            Route::get('/',             [AdminCandidateController::class, 'index'])->name('candidate');
+        });
     });
 
+
     // Admin Company
-    Route::prefix('company')->group(function () {
-        Route::get('/',              [AdminCompanyController::class, 'index'])->name('company');
-        Route::get('/post-job',      [AdminCompanyPostController::class, 'index'])->name('post_job_view');
-        Route::post('/post-job',      [AdminCompanyPostController::class, 'create'])->name('create_job');
+    Route::group(['middleware' => 'role:company'], function () {
+        Route::prefix('company')->group(function () {
+            Route::get('/',              [AdminCompanyController::class, 'index'])->name('company');
+            Route::get('/post-job',      [AdminCompanyPostController::class, 'index'])->name('post_job_view');
+            Route::post('/post-job',      [AdminCompanyPostController::class, 'create'])->name('create_job');
+        });
     });
+
 
     Route::get('/logout',             [LoginController::class, 'logout'])->name('logout');
 });
