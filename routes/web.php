@@ -43,6 +43,7 @@ Route::group(['middleware' => 'NotLogin'], function () {
             Route::get('/',              [AdminCompanyController::class, 'index'])->name('company');
             Route::get('/post-job',      [AdminCompanyPostController::class, 'index'])->name('post_job_view');
             Route::post('/post-job',      [AdminCompanyPostController::class, 'create'])->name('create_job');
+            Route::view('/profile', 'view.admin.company-profile')->name('company_profile');
         });
     });
 

@@ -226,6 +226,7 @@
         </header>
         <!--End Main Header -->
         @yield('admin.company')
+        @yield('admin.company-profile')
         @yield('admin.candidate')
         @yield('view.admin.post-job')
         <!-- Sidebar Backdrop -->
@@ -240,7 +241,8 @@
                     <li class="{{ request()->is('company') ? 'active' : '' }}"><a href="{{ route('company') }}"> <i
                                 class="la la-home"></i> Idarə paneli</a>
                     </li>
-                    <li><a href="dashboard-company-profile.html"><i class="la la-user-tie"></i> Şirkətin Profili</a>
+                    <li class="{{ request()->is('company/profile') ? 'active' : '' }}"><a
+                            href="{{ route('company_profile') }}"><i class="la la-user-tie"></i> Şirkətin Profili</a>
                     </li>
                     <li class="{{ request()->is('company/post-job') ? 'active' : '' }}"><a
                             href="{{ route('post_job_view') }}"><i class="la la-paper-plane"></i> Vakansiya əlavə
