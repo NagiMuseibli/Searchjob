@@ -83,7 +83,8 @@ class HomeController extends Controller
         }
         $jobs = Job::with('category')->find($id);
         $category_id = $jobs->category->id;
-        $related_jobs = Job::relatedJobs($category_id);
+        $job_id = $id;
+        $related_jobs = Job::relatedJobs($category_id, $job_id);
         $company = Job::with('company')->find($id);
         $job = Job::findOrFail($id);
 

@@ -42,7 +42,7 @@ class CompanyController extends Controller
             ->where('status', 1)
             ->orderByDesc('created_at')
             ->get();
-        //dd($jobs);
+        // dd($jobs);
         return view('view.company-single', [
             'company' => $company,
             'jobs' => $jobs,

@@ -49,7 +49,7 @@ class job extends Model
     }
 
 
-    public static function relatedJobs($category_id)
+    public static function relatedJobs($category_id, $job_id)
     {
         $result = DB::select("
         SELECT jobs.title AS job_title, jobs.location AS job_location, 
@@ -59,9 +59,10 @@ class job extends Model
         JOIN companies ON jobs.company_id = companies.id
         WHERE jobs.category_id = :category_id
         AND jobs.status = 1
+        AND jobs.id != :job_id
         ORDER BY jobs.created_at DESC
         LIMIT 4
-        ", ['category_id' => $category_id]);
+        ", ['category_id' => $category_id, 'job_id' => $job_id]);
 
         return $result;
     }

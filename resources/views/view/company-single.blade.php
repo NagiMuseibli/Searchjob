@@ -38,7 +38,8 @@
                                                     href="{{ route('vacancy_show', ['id' => $job->id]) }}">{{ $job->title }}</a>
                                             </h4>
                                             <ul class="job-info">
-                                                <li><span class="icon flaticon-briefcase"></span> Segment</li>
+                                                <li><span class="icon flaticon-briefcase"></span> {{ $job->category->name }}
+                                                </li>
                                                 <li><span class="icon flaticon-map-locator"></span>{{ $job->location }}</li>
                                                 <li><span class="icon flaticon-clock-3"></span>
                                                     @php
